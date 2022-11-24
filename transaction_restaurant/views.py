@@ -4,4 +4,4 @@ def read_transaction(request):
     return render(request, 'read_transaction.html')
 
 def details(request):
-    return render(request, 'details.html')
+    return render(request, 'details_transaction_restaurant.html')

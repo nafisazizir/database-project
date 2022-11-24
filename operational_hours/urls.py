@@ -5,6 +5,6 @@ app_name = 'operational_hours'
 
 urlpatterns = [
     path('', read, name='read'),
-    path('update', update, name='create'),
+    path('create', create, name='create'),
     path('update', update, name='update'),
 ]
