@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+  <html>
+    <head>
+    </head>
+    <body>
+      <h1>
+        <h5>Add Food to Menu</h5>
+        <form action="/action_page.php">
+          <label for="fname">Food Name:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="desc">Description:</label>
+          <input type="text" id="desc" name="desc"><br><br>
+          <label for="Stock">Stock:</label>
+          <input type="number" id="Stock" name="Stock"><br><br>
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price"><br><br>
+
+          <label for="fatcat">Food Category:</label>
+          <form action="#">
+            <select name="category" id="fatcat">
+              <option value="FC1">Fast Food</option>
+              <option value="FC2">Coffee & Tea</option>
+              <option value="FC3">Italian</option>
+              <option value="FC4">Japanese</option>
+              <option value="FC5">Indonesian</option>
+              <option value="FC6">Steak & Meat</option>
+            </select>
+            <br><br>
+            <label for="yngvi">Ingredients:</label>
+          <form action="#">
+            <select name="ingredients" id="yngvi">
+              <option value="I1">Fumewort</option>
+              <option value="I2">Rosette Lichen</option>
+              <option value="I3">Woodfern</option>
+              <option value="I4">Plains Springparsley</option>
+              <option value="I5">Solomon's Lily</option>
+              <option value="I6">Cordilleran Sedge</option>
+              <option value="I7">Sanddune Spurge</option>
+              <option value="I8">Dogwood</option>
+              <option value="I9">Corymb Rose</option>
+              <option value="I10">Death Valley Beardtongue</option>
+              <option value="I11">Little Green Sedge</option>
+              <option value="I12">Manyhead Desertdandelion</option>
+              <option value="I13">Stolon Stonecrop</option>
+              <option value="I14">Green And Gold</option>
+              <option value="I15">Dwarf Wakerobin</option>
+              <option value="I16">Acacia</option>
+              <option value="I17">Callingcard Vine</option>
+              <option value="I18">Lilacbush</option>
+              <option value="I19">Witchhazel</option>
+              <option value="I20">Coulter's Wrinklefruit</option>
+            </select>
+            <buttontype="submit" id="addyngvi">+</button>
+          </form>
+          <br><br>
+          <button class="btn btn-success my-3" type="submit" id="submitbutton">Save</button>
+        </form>
+      </h1>
+    </body>
+  </html>
+  {% endblock content %}
+

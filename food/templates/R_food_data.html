@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <html>
+    <head>
+      <style>
+        th, td {
+          padding: 5px;
+        }
+        </style>
+    </head>
+    <body>
+      <h5>Menu</h5>
+      <table>
+        <tr>
+        <th>No</th>
+        <th>Food Name</th>
+        <th>Description</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Food Category</th>
+        <th>Ingredients</th>
+        <th>action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Sashimi Platter</td>
+        <td>Platter of Mixed Raw Fish</td>
+        <td>50</td>
+        <td>43000</td>
+        <td>Japanese</td>
+        <td>Rosette Lichen, Plains Springparsley</td>
+        <td>
+          <button type="submit" id="editbutton">Edit</button><br>
+          <button type="submit" id="deletebutton">Delete</button>
+        </td>
+    </tr>
+    </table>
+    </body>
+  </html>
+{% endblock content %}
+
