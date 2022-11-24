@@ -1,3 +1,6 @@
+# Meta
+django-template-heroku-template.*
+
 # Virtual environments
 .env
 .venv
@@ -76,3 +79,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+Pipfile
