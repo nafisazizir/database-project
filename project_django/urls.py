@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 import restaurant_category.urls as restaurant_category
 import order_transaction_courier.urls as order_transaction_courier
-import food_inredient.urls as food_ingredient
+import food_ingredient.urls as food_ingredient
 
 urlpatterns = [
     path('admin/', admin.site.urls),
