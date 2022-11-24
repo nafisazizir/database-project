@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h5>PROMOS</h5>
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Promo Name</th>
+        <th>Promo Type</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Independence Day</td>
+        <td>Special Day</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>BUY 3!</td>
+        <td>Minimum Transactions</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <button type="button" class="btn btn-outline-primary">Delete</button>
+        </td>
+    </tr>
+</table>  
+
+<button type="button" class="btn btn-outline-primary">Create a Promo</button>
+
+{% endblock content %}

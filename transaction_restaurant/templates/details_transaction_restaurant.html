@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <h1 class="text-center"> Order Summary </h1>
+    <br>
+    <p>Order created time: 2022-11-04 11:30:05</p>
+
+    <h4>Customer Details</h4>
+    <p>Customer Name: Mikayla Putri</p>
+    <p>Street: Jalan Bahagia Nomor 72</p>
+    <p>Distrcit: Cinere</p>
+    <p>City: Depok</p>
+    <p>Province: Jawa Barat</p>
+
+    <h4>Restaurant Details</h4>
+    <p>Restaurant: Warung Mantap Depok</p>
+    <p>Street: Jalan Sejahtera Nomor 5</p>
+    <p>District: Bojongsari</p>
+    <p>City: Depok</p>
+    <p>Province: Jawa Barat</p>
+
+    <h4>Food Ordered</h4>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col"> Menu </th>
+            <th scope="col"> Quantity </th>
+            <th scope="col"> Notes </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td> Fried Chicken </td>
+            <td> 1 </td>
+            <td> No Notes </td>
+        </tr>
+        <tr>
+            <td> Ice Cream </td>
+            <td> 2 </td>
+            <td> Yang pedes ya mas </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>Payment Details</h4>
+    <p>Total Food Price: 11000</p>
+    <p>Total Discount: 0</p>
+    <p>Delivery Fee: 4000</p>
+    <p>Total Price: 15000</p>
+    <p>Payment Method: RestoPay</p>
+    <p>Payment Status: Succeed</p>
+    <p>Transaction Status: Waiting for Restaurant Confirmation</p>
+
+    <h4>Courier Details</h4>
+    <p>Courier: -</p>
+    <p>Plate Number: -</p>
+    <p>Vehicle Type: -</p>
+    <p>Vehicle Brand</p>
+
+    <button type="submit" class="btn btn-primary">Back</button>
+</body>
+
+{% endblock content %}

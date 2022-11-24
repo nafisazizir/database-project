@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <h1 class="text-center"> Create New Operational Time </h1>
+    <br>
+
+    <form>
+      <label for="dayPicker"> Day </label>
+      <select class="form-control" id="dayPicker">
+        <option hidden > Please select </option>
+        <option> Monday </option>
+        <option> Tuesday </option>
+        <option> Wednesday </option>
+        <option> Thursday </option>
+        <option> Friday </option>
+        <option> Saturday </option>
+        <option> Sunday </option>
+      </select>
+
+      <label for="openTime"> Opening Time </label>
+      <input type="time" class="form-control" id="openTime">
+
+      <label for="openTime"> Closing Time </label>
+      <input type="time" class="form-control" id="closeTime">
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</body>
+
+{% endblock content %}

@@ -17,17 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
-# import restaurant_category.urls as restaurant_category
-# import order_transaction_courier.urls as order_transaction_courier
-# import food_ingredient.urls as food_ingredient
-
+import sirest.urls as sirest
+import restaurant_category.urls as restaurant_category
+import order_transaction_courier.urls as order_transaction_courier
+import food_ingredient.urls as food_ingredient
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('example_app.urls')),
-    # path('restaurant_category/', include(restaurant_category)),
-    # path('order_transaction_courier/', include(order_transaction_courier)),
-    # path('food_ingredient/', include(food_ingredient)),
+    path('', include(sirest)),
+    path('restaurant_category/', include(restaurant_category)),
+    path('order_transaction_courier/', include(order_transaction_courier)),
+    path('food_ingredient/', include(food_ingredient)),
+    path('promos/', include('crud_promo.urls')),
+    path('restopromos/', include('crud_resto.urls')),
+    path('history/', include('transaction_history.urls')),
+    path('operational_hours/', include('operational_hours.urls')),
+    path('restopay/', include('restopay.urls')),
+    path('transaction_restaurant/', include('transaction_restaurant.urls')),
     path('delivery_fee/', include('delivery_fee.urls')),
     path('food/', include('food.urls')),
 ]

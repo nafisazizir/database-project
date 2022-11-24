@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Order Details</h1>
+<p>Order Time: 2022-11-04 11:30:05</p>
+<br>
+<p>Customer Name: Mikayla Putri</p>
+<p>Street: Jalan Bahagia nomor 72</p>
+<p>District: Cinere</p>
+<p>City: Depok</p>
+<p>Province: Jawa Barat</p>
+<br>
+<p>Restaurant: Warung Mantap Depok</p>
+<p>Street: Jalan Sejahtera nomor 5</p>
+<p>District: Bojongsari</p>
+<p>City: Depok</p>
+<p>Province: Jawa Barat</p>
+<br>
+<p>Food Ordered:</p>
+<table>
+    <tr>
+        <td><ul>Ayam Goreng (1)</ul></td>
+        <td><input class="btn login_btn" type="submit" value="Notes"></td>
+    </tr>
+    <tr>
+        <td><ul>Ice Cream (2)</ul></td>
+        <td><input class="btn login_btn" type="submit" value="Notes"></td>
+    </tr>
+</table>
+<p>Total Food Price: 11000</p>
+<p>Total Discount: 0</p>
+<p>Delivery Fee: 4000</p>
+<p>Total Cost: 15000</p>
+<br>
+<p>Payment Method: RestoPay</p>
+<p>Payment Status: Succeed</p>
+<p>Order Status: Order Delivery</p>
+<br>
+<p>Courier: Doni Suryana</p>
+<p>Number Plate: B 0001 KNN</p>
+<p>Vehicle Type: Motor</p>
+<p>Vehicle Brand: Honda Vario</p>
+<br>
+<table>
+    <tr>
+        <th>Status</th>
+        <th>Timestamp</th>
+    </tr>
+    <tr>
+        <td>Waiting for Restaurant Confirmation</td>
+        <td>11:30:05</td>
+    </tr>
+    <tr>
+        <td>Order Made</td>
+        <td>11:31:03</td>
+    </tr>
+    <tr>
+        <td>Order Delivery</td>
+        <td>11:40:01</td>
+    </tr>
+    <tr>
+        <td>Order Complete</td>
+        <td>11:50:07</td>
+    </tr>
+</table>
+<input class="btn login_btn" type="submit" value="Back">
+{% endblock content %}
