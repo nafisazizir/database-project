@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    test
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Food Category Name</th>
+            <th>Action</th>
+        </tr>
+        {% for i in Category %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.Name }}</td>
+            <td><a href = ""><button>Delete</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+{% endblock content %}

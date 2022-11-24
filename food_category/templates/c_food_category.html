@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <h1>Food Category Form</h1>
+    {% csrf_token %}
+    <form>
+        <div>
+            <label>Food Category Name: </label>
+            <input type="text">
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+{% endblock content %}

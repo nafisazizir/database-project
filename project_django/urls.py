@@ -20,10 +20,14 @@ from django.conf import settings
 import restaurant_category.urls as restaurant_category
 import order_transaction_courier.urls as order_transaction_courier
 import food_ingredient.urls as food_ingredient
+import food_category.urls as food_category
+import order_transaction_customer.urls as order_transaction_customer
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('restaurant_category/', include(restaurant_category)),
-    path('order_transaction_courier/', include(order_transaction_courier)),
-    path('food_ingredient/', include(food_ingredient)),
+    path("admin/", admin.site.urls),
+    path("restaurant_category/", include(restaurant_category)),
+    path("order_transaction_courier/", include(order_transaction_courier)),
+    path("food_ingredient/", include(food_ingredient)),
+    path("food_category/", include(food_category)),
+    path("order_transaction_customer/", include(order_transaction_customer)),
 ]
