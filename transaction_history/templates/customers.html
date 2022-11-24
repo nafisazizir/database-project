@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>TRANSACTION HISTORY</h1>
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Restaurant</th>
+        <th>Courier Name</th>
+        <th>Order Time</th>
+        <th>Order Status</th>
+        <th>Rating</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Warung Mantap Depok</td>
+        <td>Doni Suryana</td>
+        <td>2022-11-04 11:30:05</td>
+        <td>Order Completed</td>
+        <td>-</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Rate</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>KFC Depok</td>
+        <td></td>
+        <td>2022-11-01 09:00:01</td>
+        <td>Order Cancelled</td>
+        <td>-</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Sabana Bekasi</td>
+        <td>Joni Aldo</td>
+        <td>2022-10-27 20:04:29</td>
+        <td>Order Completed</td>
+        <td>4</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+        </td>
+    </tr>
+</table>  
+
+{% endblock content %}

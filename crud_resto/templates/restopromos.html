@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h5>PROMOS</h5>
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Promo Name</th>
+        <th>Promo Period</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Independence Day</td>
+        <td>2022-08-15 until 2022-08-20</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <button type="button" class="btn btn-outline-primary">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>BUY 3!</td>
+        <td>2022-08-15 until 2022-08-20</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <button type="button" class="btn btn-outline-primary">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>EATEATEAT</td>
+        <td>2022-09-10 until 2022-09-15</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <button type="button" class="btn btn-outline-primary">Delete</button>
+        </td>
+    </tr>
+</table>  
+
+<button type="button" class="btn btn-outline-primary">Add a Promo</button>
+
+{% endblock content %}
