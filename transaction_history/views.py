@@ -11,7 +11,7 @@ def show_restaurants(request):
     return render(request, "restaurants.html")
 
 def show_details(request):
-    return render(request, "details.html")
+    return render(request, "orderdetails.html")
 
 def show_rating(request):
     return render(request, "rating.html")
