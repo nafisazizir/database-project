@@ -1,4 +1,4 @@
-from django import path
+from django.urls import path
 from .views import *
 
 app_name = 'order_transaction_courier'

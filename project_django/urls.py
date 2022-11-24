@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+
 import restaurant_category.urls as restaurant_category
 import order_transaction_courier.urls as order_transaction_courier
 import food_ingredient.urls as food_ingredient
