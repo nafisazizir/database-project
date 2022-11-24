@@ -31,4 +31,7 @@ urlpatterns = [
     path('promos/', include('crud_promo.urls')),
     path('restopromos/', include('crud_resto.urls')),
     path('history/', include('transaction_history.urls')),
+    path('operational_hours/', include('operational_hours.urls')),
+    path('restopay/', include('restopay.urls')),
+    path('transaction_restaurant/', include('transaction_restaurant.urls'))
 ]

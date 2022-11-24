@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <h1 class="text-center"> Operational Hours </h1>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col"> No </th>
+            <th scope="col"> Day </th>
+            <th scope="col"> Operating Time </th>
+            <th scope="col"> Closing Time </th>
+            <th scope="col"> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td> Monday </td>
+            <td> 08:00:00 </td>
+            <td> 21:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"> 2 </th>
+            <td> Tuesday </td>
+            <td> 08:00:00 </td>
+            <td> 21:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td> Wednesday </td>
+            <td> 08:00:00 </td>
+            <td> 21:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td> Thursday </td>
+            <td> 08:00:00 </td>
+            <td> 21:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td> Friday </td>
+            <td> 08:00:00 </td>
+            <td> 23:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td> Saturday </td>
+            <td> 08:00:00 </td>
+            <td> 23:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td> Sunday </td>
+            <td> 08:00:00 </td>
+            <td> 21:00:00 </td>
+            <td>
+                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
+                <button class="btn btn-outline-primary"> Delete </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+
+{% endblock content %}

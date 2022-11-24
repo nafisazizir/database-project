@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <h1 class="text-center">RestoPay</h1>
+    <br>
+    <form>
+      <h3>Current Balance: Rp103,000</h3>
+      <label for="topUpAmount">Amount to top up</label>
+      <input type="text" class="form-control" id="topUpAmount" placeholder="Rp50.000">
+
+      <p>From:</p>
+      <p>Bank Name: BNI</p>
+      <p>Account Number: 2106658843</p>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</body>
+
+{% endblock content %}
