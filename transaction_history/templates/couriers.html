@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>TRANSACTION HISTORY</h1>
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Restaurant Branch</th>
+        <th>Customer Name</th>
+        <th>Order Time</th>
+        <th>Order Status</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Warung Mantap Depok</td>
+        <td>Mikayla Putri</td>
+        <td>11:30:05</td>
+        <td>Order Completed</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+        </td>
+    </tr>
+</table>  
+
+{% endblock content %}

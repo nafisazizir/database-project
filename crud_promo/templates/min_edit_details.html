@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="">  
+    {% csrf_token %}  
+    <table>
+        <tr>
+            <td>Promo Type: </td>
+            <td>Minimum Transactions</td>
+        </tr>
+        <tr>
+            <td>Promo Name: </td>
+            <td>BUY 3</td>
+        </tr>
+        <tr>
+            <td>Discount: </td>
+            <td><input type="text" name="Discount" label="Discount" required placeholder="Discount" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td><input type="text" name="Minimum Transactions" label="Minimum Transactions" required placeholder="Minimum Transactions" class="form-control"></td>
+        </tr>
+    </table>  
+    <input class="btn login_btn" type="submit" value="Save">
+</form>
+{% endblock content %}

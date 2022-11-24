@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="">  
+    {% csrf_token %}  
+    <table>
+        <tr>
+            <td>Promo Type: </td>
+            <td>Special Day</td>
+        </tr>
+        <tr>
+            <td>Promo Name: </td>
+            <td>Independence Day</td>
+        </tr>
+        <tr>
+            <td>Discount: </td>
+            <td><input type="text" name="Discount" label="Discount" required placeholder="Discount" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td><input type="text" name="Special Day" label="Special Day" required placeholder="Special Day" class="form-control"></td>
+        </tr>
+    </table>  
+    <input class="btn login_btn" type="submit" value="Save">
+</form>
+{% endblock content %}

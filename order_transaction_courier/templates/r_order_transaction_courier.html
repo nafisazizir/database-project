@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
     <style>
         table, th, td {
             border: 1px solid black;
@@ -12,8 +11,6 @@
     </style>
 </head>
 <body>
-    {% include base.html %}
-    {% block content %}
     <table>
         <tr>
             <th>No</th>
@@ -23,17 +20,31 @@
             <th>Order status</th>
             <th>Action</th>
         </tr>
-        {% for i in transaction_status %}
+        <!-- {% for i in transaction_status %}
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ i.RBranch }}</td>
             <td>{{ i.FName }}</td>
             <td>{{ i.DateTime }}</td>
             <td>{{ i.OrderStatus }}</td>
-            <td><a href = ""><button>Delete</button></a></td>
+            <td>
+                <a href = ""><button>Details</button></a>
+                <a href = ""><button>Complete</button></a>
+            </td>
         </tr>
-        {% endfor %}
+        {% endfor %} -->
+        <tr>
+            <td>1</td>
+            <td>Warung Mantap Depok</td>
+            <td>Mikayla Putri</td>
+            <td>2022-11-04 11:30:05</td>
+            <td>Order Delivery</td>
+            <td>
+                <a href = ""><button>Details</button></a>
+                <a href = ""><button>Complete</button></a>
+            </td>
+        </tr>
     </table>
-    {% endblock %}
 </body>
 </html>
+{% endblock %}
