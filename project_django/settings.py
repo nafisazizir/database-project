@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'crud_promo',
     'crud_resto',
     'transaction_history',
+    'operational_hours',
+    'restopay',
+    'transaction_restaurant'
 ]
 
 MIDDLEWARE = [
