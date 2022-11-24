@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <html>
+    <head>
+      <style>
+        th, td {
+          padding: 5px;
+        }
+        </style>
+    </head>
+    <body>
+      <h5>Delivery Fee per KM</h5>
+      <table>
+        <tr>
+        <th>No</th>
+        <th>Province</th>
+        <th>Motorcycle Rate</th>
+        <th>Car Rate</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>DKI Jakarta</td>
+        <td>10000</td>
+        <td>15000</td>
+        <td>
+          <button type="submit" id="editbutton">Edit</button><br>
+          <button type="submit" id="deletebutton">Delete</button>
+        </td>
+    </tr>
+    </table>
+    </body>
+  </html>
+{% endblock content %}
+
