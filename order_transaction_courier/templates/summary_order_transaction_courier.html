@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
 </head>
 <body>
-    {% block content %}
     <h2>Order Summary</h2>
     <p>Time of order creation: 2022-11-04 11:30:05</p>
     <p>Customer name: Mikayla Putri</p>
@@ -35,6 +33,6 @@
     <p>Vehicle Type: Motor</p>
     <p>Vehicle Brand: Honda Vario</p>
     <a href = ""><button>Back</button></a>
-    {% endblock %}
 </body>
 </html>
+{% endblock %}
