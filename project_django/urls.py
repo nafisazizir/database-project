@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
+import sirest.urls as sirest
 import restaurant_category.urls as restaurant_category
 import order_transaction_courier.urls as order_transaction_courier
 import food_ingredient.urls as food_ingredient
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(sirest)),
     path('restaurant_category/', include(restaurant_category)),
     path('order_transaction_courier/', include(order_transaction_courier)),
     path('food_ingredient/', include(food_ingredient)),
