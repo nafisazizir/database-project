@@ -26,4 +26,7 @@ urlpatterns = [
     path('restaurant_category/', include(restaurant_category)),
     path('order_transaction_courier/', include(order_transaction_courier)),
     path('food_ingredient/', include(food_ingredient)),
+    path('promos/', include('crud_promo.urls')),
+    path('restopromos/', include('crud_resto.urls')),
+    path('history/', include('transaction_history.urls')),
 ]
