@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sirest',
     'restaurant_category',
-    'order_transaction_actor',
+    'order_transaction_courier',
     'food_ingredient',
 ]
 
