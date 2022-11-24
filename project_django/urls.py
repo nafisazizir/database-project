@@ -35,5 +35,6 @@ urlpatterns = [
     path('restopay/', include('restopay.urls')),
     path('transaction_restaurant/', include('transaction_restaurant.urls')),
     path('delivery_fee/', include('delivery_fee.urls')),
-    path('food/', include('food.urls')),
+    path('food/', include('food.urls')),,
+    path('user/', include('user.urls')),
 ]

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'transaction_history',
     'operational_hours',
     'restopay',
-    'transaction_restaurant'
+    'transaction_restaurant',
+    'user',
 ]
 
 MIDDLEWARE = [
