@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center"> User Dashboard: ADMIN SIREST </h1>
+
+<br>
+
+<p>Email: admin@gmail.com</p>
+<p>Password: aneh banget password masa di show!?</p>
+<p>Name: Coba Tebak Aku Siapa</p>
+<p>Phone Number: 12345677890</p>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col"> Email </th>
+        <th scope="col"> Name </th>
+        <th scope="col"> Role </th>
+        <th scope="col"> Status </th>
+        <th scope="col"> Action </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <tr>
+            <td> mutia@gmail.com </td>
+            <td> Mutia Anisa </td>
+            <td> User </td>
+            <td> Not Been Verified </td>
+            <td>
+                <button class="btn btn-outline-primary"> Details </button>
+                <button class="btn btn-primary"> Verification </button>
+            </td>
+        </tr>
+        <tr>
+            <td> cahyo@gmail.com </td>
+            <td> Cahyo Budi </td>
+            <td> Courier </td>
+            <td> Verified </td>
+            <td>
+                <button class="btn btn-outline-primary"> Details </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content %}

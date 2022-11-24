@@ -33,5 +33,6 @@ urlpatterns = [
     path('history/', include('transaction_history.urls')),
     path('operational_hours/', include('operational_hours.urls')),
     path('restopay/', include('restopay.urls')),
-    path('transaction_restaurant/', include('transaction_restaurant.urls'))
+    path('transaction_restaurant/', include('transaction_restaurant.urls')),
+    path('user/', include('user.urls')),
 ]
