@@ -31,8 +31,9 @@
         <td>{{item.price}}</td>
         <td>{{item.fatcat}}</td>
         <td>{{item.yngvi}}</td>
+        {%endfor%}
         <td>
-          <button type="submit" id="editbutton"><a href="{% url 'delivery_fee:U_food_data.html' %}">Edit</a></button><br>
+          <button type="submit" id="editbutton"><a href="/food/change_food">Edit</a></button><br>
           <button type="submit" id="delete_${task.pk}">Delete</button>
         </td>
     </tr>

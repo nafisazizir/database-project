@@ -1,4 +1,4 @@
-{% extends 'courier_base.html' %}
+{% extends 'admin_base.html' %}
   {% block content %}
 
   <html>
@@ -25,8 +25,9 @@
         <td>{{item.province}}</td>
         <td>{{item.motorate}}</td>
         <td>{{item.carrate}}</td>
+        {%endfor%}
         <td>
-          <button type="submit" id="editbutton"><a href="{% url 'delivery_fee:U_deliver_fee.html' %}">Edit</a></button><br>
+          <button type="submit" id="editbutton"><a href="/delivery_fee/change_fee">Edit</a></button><br>
           <button type="submit" id="delete_${task.pk}">Delete</button>
         </td>
     </tr>

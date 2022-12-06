@@ -1,4 +1,4 @@
-{% extends 'restaurant_base.html' %}
+{% extends 'admin_base.html' %}
 {% block content %}
 
   <html>
@@ -23,8 +23,8 @@
         <td>Sushi Tei Lombok</td>
         <td>6</td>
         <td>
-          <button type="submit" id="showdetail">Details</button><br>
-          <button type="submit" id="showmenu">Menu</button>
+          <button type="submit" id="showdetail"><a href="/food/details">Details</a></button><br>
+          <button type="submit" id="showmenu"><a href="/food/menu">Menu</a></button>
         </td>
     </tr>
     </table>
