@@ -6,8 +6,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
-from deliver_fee.models import Task
 import datetime
+from deliver_fee.models import Task
+
 
 def show_fee(request):
     delivery_fee_price = Task.objects.all()

@@ -5,7 +5,6 @@ app_name = 'food'
 
 urlpatterns = [
     path('', show_resto_list, name='show_resto_list'),
-    path('details/', show_resto_detail, name='show_resto_detail'),
     path('menu/', show_food, name='show_food'),
     path('add_food/', add_food, name='add_food'),
     path('change_food/', change_food, name='change_food'),
