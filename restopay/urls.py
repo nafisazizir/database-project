@@ -4,7 +4,13 @@ from .views import *
 app_name = 'restopay'
 
 urlpatterns = [
-    path('', read_restopay, name='read_restopay'),
-    path('topup', topup, name='topup'),
-    path('withdraw', withdraw, name='withdraw'),
+    path('restaurant', read_restopay_restaurant, name='read_restopay_restaurant'),
+    path('topup_restaurant', topup_restaurant, name='topup_restaurant'),
+    path('withdraw_restaurant', withdraw_restaurant, name='withdraw_restaurant'),
+    path('customer', read_restopay_customer, name='read_restopay_customer'),
+    path('topup_customer', topup_customer, name='topup_customer'),
+    path('withdraw_customer', withdraw_customer, name='withdraw_customer'),
+    path('courier', read_restopay_customer, name='read_restopay_courier'),
+    path('topup_courier', topup_customer, name='topup_courier'),
+    path('withdraw_courier', withdraw_customer, name='withdraw_courier'),
 ]
