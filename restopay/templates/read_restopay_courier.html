@@ -1,0 +1,14 @@
+{% extends 'courier_base.html' %}
+{% block content %}
+
+<h1 class="text-center">RestoPay</h1>
+<br>
+<div class="">
+    <h3>Balance: Rp103,000</h3>
+    <div>
+        <button type="submit" class="btn btn-primary mx-2" onclick="location.href = '{% url 'restopay:topup_courier' %}';">Top Up</button>
+        <button type="submit" class="btn btn-outline-primary mx-2" onclick="location.href = '{% url 'restopay:withdraw_courier' %}';">Withdraw</button>
+    </div>
+</div>
+
+{% endblock content %}
