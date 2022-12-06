@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'restaurant_base.html' %}
 {% block content %}
 
   <html>
@@ -23,16 +23,17 @@
         <th>action</th>
       </tr>
       <tr>
-        <td>1</td>
-        <td>Sashimi Platter</td>
-        <td>Platter of Mixed Raw Fish</td>
-        <td>50</td>
-        <td>43000</td>
-        <td>Japanese</td>
-        <td>Rosette Lichen, Plains Springparsley</td>
+        {% for item in list_item %}
+        <td>{{item.pk}}</td>
+        <td>{{item.fname}}</td>
+        <td>{{item.desc}}</td>
+        <td>{{item.stock}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.fatcat}}</td>
+        <td>{{item.yngvi}}</td>
         <td>
-          <button type="submit" id="editbutton">Edit</button><br>
-          <button type="submit" id="deletebutton">Delete</button>
+          <button type="submit" id="editbutton"><a href="{% url 'delivery_fee:U_food_data.html' %}">Edit</a></button><br>
+          <button type="submit" id="delete_${task.pk}">Delete</button>
         </td>
     </tr>
     </table>

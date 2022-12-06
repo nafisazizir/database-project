@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-
+from food.models import *
 
 def show_resto_list(request):
-    return render(request, "R_resto_list.html")
+    delivery_fee_price = Resto.objects.all()
+    context = {
+        'list_item': delivery_fee_price,
+    }
+    return render(request, "R_delivery_fee.html",context)
 
 def show_resto_detail(request):
     return render(request, "R_resto_detail.html")
