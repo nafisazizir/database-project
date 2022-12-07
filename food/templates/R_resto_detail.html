@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'admin_base.html' %}
 {% block content %}
 
   <html>
@@ -21,15 +21,16 @@
       <p>Rating: 6</p>
       <p>Restaurant Category: Japanese</p>
       <p>Operational Hours: 
-        Tuesday	08:00:00-23:30:00
-      </p>
+      <p>Day: Tuesday</p>
+      <p>Start Hours: 08:00:00</p>
+      <p>End Hours: 23:30:00</p>
       <p>Ongoing Promos: 
         IndependenceDay
         PESTA41
       </p>
     </body>
   </html>
-  <button type="submit" id="back">Back</button>
+  <button type="submit" id="back"><a href="/food/">Back</a></button>
 
 {% endblock content %}
 
