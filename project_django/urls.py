@@ -37,4 +37,5 @@ urlpatterns = [
     path('delivery_fee/', include('delivery_fee.urls')),
     path('food/', include('food.urls')),
     path('user/', include('user.urls')),
+    path('sirest/', include('sirest.urls')),
 ]
