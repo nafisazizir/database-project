@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-
+{% extends 'admin_base.html' %}
   {% block content %}
   <html>
     <head>
@@ -8,12 +7,12 @@
       <h1>
         <h5>Change Delivery Fee per KM</h5>
         <form action="/action_page.php">
-          <label for="province">Province: DKI Jakarta</label><br>
+          <label for="province">Province:{{item.province}}</label><br>
           <label for="motorate">Motorcycle Delivery Rate:</label>
           <input type="text" id="motorate" name="motorate"><br><br>
           <label for="carrate">Car Delivery Rate:</label>
           <input type="text" id="carrate" name="carrate"><br><br>
-          <button class="btn btn-success my-3" type="submit" id="submitbutton">Save</button>
+          <button class="btn btn-success my-3" type="submitbutton" id="change_fee">Save</button>
         </form>
       </h1>
     </body>
