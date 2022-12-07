@@ -28,12 +28,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Restaurant</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                        <li><a class="dropdown-item" href="#">Restaurant Category List</a></li>
-                        <li><a class="dropdown-item" href="#">Create Restaurant Category</a></li>
+                        <li><a class="dropdown-item" href="restaurant_category/templates/r_restaurant_category.html/">Restaurant Category List</a></li>
+                        <li><a class="dropdown-item" href="restaurant_category/templates/c_restaurant_category.html">Create Restaurant Category</a></li>
                         <li><a class="dropdown-item" href="#">Food Category List</a></li>
                         <li><a class="dropdown-item" href="#">Create Food Category</a></li>
-                        <li><a class="dropdown-item" href="#">Food Ingredient List</a></li>
-                        <li><a class="dropdown-item" href="#">Create Food Ingredient</a></li>
+                        <li><a class="dropdown-item" href="food_ingredient/templates/r_food_ingredient.html/">Food Ingredient List</a></li>
+                        <li><a class="dropdown-item" href="food_ingredient/templates/c_food_ingredient.html/">Create Food Ingredient</a></li>
                         <li><a class="dropdown-item" href="#">Restaurant and Food List</a></li>
                     </ul>
                 </li>
@@ -71,13 +71,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Restaurant and Food List</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'restopay:read_restopay_customer' %}">Restaurant and Food List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">RestoPay</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'restopay:read_restopay_customer' %}">RestoPay</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Logout</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'restopay:read_restopay_customer' %}">Logout</a>
                 </li>
             </ul>
         </div>
