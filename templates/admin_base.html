@@ -33,7 +33,7 @@
                         <li><a class="dropdown-item" href="#">Create Food Category</a></li>
                         <li><a class="dropdown-item" href="#">Food Ingredient List</a></li>
                         <li><a class="dropdown-item" href="#">Create Food Ingredient</a></li>
-                        <li><a class="dropdown-item" href="#">Restaurant and Food List</a></li>
+                        <li><a class="dropdown-item" href="{% url 'food:show_resto_list' %}">Restaurant and Food List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -46,8 +46,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Order</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                        <li><a class="dropdown-item" href="#">Delivery Fee per KM List</a></li>
-                        <li><a class="dropdown-item" href="#">Create Delivery Fee per KM</a></li>
+                        <li><a class="dropdown-item" href="{% url 'delivery_fee:show_fee' %}">Delivery Fee per KM List</a></li>
+                        <li><a class="dropdown-item" href="{% url 'delivery_fee:add_fee' %}">Create Delivery Fee per KM</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

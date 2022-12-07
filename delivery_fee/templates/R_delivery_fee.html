@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'admin_base.html' %}
+  {% block content %}
 
   <html>
     <head>
@@ -20,17 +20,19 @@
         <th>Actions</th>
       </tr>
       <tr>
-        <td>1</td>
-        <td>DKI Jakarta</td>
-        <td>10000</td>
-        <td>15000</td>
+        {% for item in list_item %}
+        <td>{{item.pk}}</td>
+        <td>{{item.province}}</td>
+        <td>{{item.motorate}}</td>
+        <td>{{item.carrate}}</td>
+        {%endfor%}
         <td>
-          <button type="submit" id="editbutton">Edit</button><br>
-          <button type="submit" id="deletebutton">Delete</button>
+          <button type="submit" id="editbutton"><a href="/delivery_fee/change_fee">Edit</a></button><br>
+          <button type="submit" id="delete_${task.pk}">Delete</button>
         </td>
     </tr>
     </table>
     </body>
   </html>
-{% endblock content %}
+  {% endblock content %}
 
