@@ -8,45 +8,76 @@
 </head>
 <body>
     <div>
-        <label>Email: </label>
-        <input type="text">
-        <label>Password: </label>
-        <input type="text">
-        <label>Name: </label>
-        <input type="text">
-        <label>Phone number: </label>
-        <input type="text">
-        <label>NIK: </label>
-        <input type="text">
-        <label>Bank Name: </label>
-        <input type="text">
-        <label>Account number: </label>
-        <input type="text">
-        <label>Restaurant name: </label>
-        <input type="text">
-        <label>Branch: </label>
-        <input type="text">
-        <label>Phone number: </label>
-        <input type="text">
-        <label>Street: </label>
-        <input type="text">
-        <label>District: </label>
-        <input type="text">
-        <label>City: </label>
-        <input type="text">
-        <label>Province: </label>
-        <input type="text">
-
-        <label for="resturant_category">Restaurant category:</label>
-
-        <select name="restaurant_category">
-            <option value="japanese">Japanese</option>
-            <option value="western">Western</option>
-            <option value="chinese">Chinese</option>
-            <option value="italian">Italian</option>
-            <option value="french">French</option>
-        </select>
+        <h2>Restaurant Registration Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+                </li>
+                <li>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required>
+                </li>
+                <li>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                    <label for="phonenumber">Phone Number:  </label>
+                    <input type="tel" name="phonenumber" id="phonenumber" required>
+                </li>
+                <li>
+                    <label for="nik">NIK:  </label>
+                    <input type="text" name="nik" id="nik" required>
+                </li>
+                <li>
+                    <label for="bankname">Bank Name:  </label>
+                    <input type="text" name="bankname" id="bankname" required>
+                </li>
+                <li>
+                    <label for="accountnumber">Account Number:  </label>
+                    <input type="text" name="accountnumber" id="accountnumber" required>
+                </li>
+                <li>
+                    <label for="restaurantname">Restaurant Name:  </label>
+                    <input type="text" name="restaurantname" id="restaurantname" required>
+                </li>
+                <li>
+                    <label for="branch">Branch:  </label>
+                    <input type="text" name="branch" id="branch" required>
+                </li>
+                <li>
+                    <label for="rphonenumber">Restaurant Phone Number:  </label>
+                    <input type="tel" name="rphonenumber" id="rphonenumber" required>
+                </li>
+                <li>
+                    <label for="street">Street:  </label>
+                    <input type="text" name="street" id="street" required>
+                </li>
+                <li>
+                    <label for="district">District:  </label>
+                    <input type="text" name="district" id="district" required>
+                </li>
+                <li>
+                    <label for="city">City:  </label>
+                    <input type="text" name="city" id="city" required>
+                </li>
+                <li>
+                    <label for="province">Province:  </label>
+                    <input type="text" name="province" id="province" required>
+                </li>
+                <!-- <li>
+                    <label for="restaurantcategory">Restaurant Category:  </label>
+                    <select id="gender" name="gender" required>
+                        {% for i in restaurant_category %}
+                        <option value="i.RCId">Male</option>
+                    </select>
+                </li> -->
+            </ul>
+            <button type="submit">Register</button>
+        </form>
     </div>
-    <button type="submit">Register</button>
 </body>
 </html>
