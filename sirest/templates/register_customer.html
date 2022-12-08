@@ -7,46 +7,53 @@
     <title>SIREST</title>
 </head>
 <body>
-    <form method="POST" class="Login-Form" autocomplete="off">
-        <div class="card text-center" style="margin: 225px 500px auto 500px">
-            <div class="card-header">
-                User Registration
-            </div>
-            <div class="card-body">
-                {% csrf_token %}
-                {{ form.as_p}}
-            </div>
-            <div class="card-footer text-muted">
-                <div class="text-center">
-                    <button type="submit" value="Submit" class="btn btn-dark Login">Register</button>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!-- <div>
-        <label>Email: </label>
-        <input type="text">
-        <label>Password: </label>
-        <input type="text">
-        <label>Name: </label>
-        <input type="text">
-        <label>Phone number: </label>
-        <input type="text">
-        <label>NIK: </label>
-        <input type="text">
-        <label>Bank Name: </label>
-        <input type="text">
-        <label>Account number: </label>
-        <input type="text">
-        <label>Date of birth: </label>
-        <input type="date">
-        <label for="gender">Gender:</label>
-        <select name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+    <div>
+        <h2>Customer Registration Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+                </li>
+                <li>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required>
+                </li>
+                <li>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                    <label for="phonenumber">Phone Number:  </label>
+                    <input type="tel" name="phonenumber" id="phonenumber" required>
+                </li>
+                <li>
+                    <label for="nik">NIK:  </label>
+                    <input type="text" name="nik" id="nik" required>
+                </li>
+                <li>
+                    <label for="bankname">Bank Name:  </label>
+                    <input type="text" name="bankname" id="bankname" required>
+                </li>
+                <li>
+                    <label for="accountnumber">Account Number:  </label>
+                    <input type="text" name="accountnumber" id="accountnumber" required>
+                </li>
+                <li>
+                    <label for="dateofbirth">Date of Birth:  </label>
+                    <input type="date" name="dateofbirth" id="dateofbirht" required>
+                </li>
+                <li>
+                    <label for="gender">Gender:  </label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </li>
+            </ul>
+            <button type="submit">Register</button>
+        </form>
     </div>
-    <button type="submit">Register</button> -->
 </body>
 </html>
