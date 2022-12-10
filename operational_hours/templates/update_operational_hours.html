@@ -5,10 +5,11 @@
     <h1 class="text-center"> Edit Operational Time </h1>
     <br>
 
-    <form>
+    <form method="POST">
+      {% csrf_token %}
       <label for="dayPicker"> Day </label>
       <select class="form-control" id="dayPicker" disabled>
-        <option hidden > Monday </option>
+        <option hidden > {{ day }} </option>
         <option> Monday </option>
         <option> Tuesday </option>
         <option> Wednesday </option>
@@ -19,11 +20,12 @@
       </select>
 
       <label for="openTime"> Opening Time </label>
-      <input type="time" class="form-control" id="openTime">
+      <input type="time" class="form-control" id="openTime" name="openTime" required>
 
       <label for="openTime"> Closing Time </label>
-      <input type="time" class="form-control" id="closeTime">
-
+      <input type="time" class="form-control" id="closeTime" name="closeTime" required>
+      
+      <p>{{ message }}</p>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
 

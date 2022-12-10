@@ -2,27 +2,32 @@
 {% block content %}
 
 <body>
-    <h1 class="text-center">RestoPay</h1>
-    <br>
-    <form>
-      <h3>Current Balance: Rp103,000</h3>
-      <label for="withdrawAmount">Amount to withdraw</label>
-      <input type="text" class="form-control" id="withdrawAmount" placeholder="Rp50.000">
+  <h1 class="text-center">RestoPay</h1>
+  <br>
+  <form method="POST">
+    {% csrf_token %}
+    <h3>Current Balance: Rp{{ balance }}</h3>
+    <label for="amount">Amount to withdraw</label>
+    <input type="number" class="form-control" id="amount" name="amount" placeholder="50000" required>
 
-      <p>To:</p>
-      <label for="bank">Bank Name</label>
-      <select class="form-control" id="bank">
-        <option>BNI</option>
-        <option>BCA</option>
-        <option>BRI</option>
-        <option>Mandiri</option>
-        <option>Jenius</option>
-      </select>
-      <label for="accountNum">Account Number</label>
-      <input type="number" class="form-control" id="AccountNum" placeholder="Fill in your account number">
+    <p>To:</p>
+    <label for="bank">Bank Name</label>
+    <select class="form-control" id="bank" required>
+      <option>BNI</option>
+      <option>BCA</option>
+      <option>BRI</option>
+      <option>Mandiri</option>
+      <option>Jenius</option>
+    </select>
+    <label for="accountNum">Account Number</label>
+    <input type="number" class="form-control" id="AccountNum" placeholder="Fill in your account number" required>
 
-      <button class="btn btn-primary">Save</button>
-    </form>
+    {% if message %}
+    <p> {{message}} </p>
+    {% endif %}
+
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
 </body>
 
 {% endblock content %}

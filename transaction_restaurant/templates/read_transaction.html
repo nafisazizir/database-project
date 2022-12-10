@@ -17,65 +17,18 @@
         </thead>
         <tbody>
         <tr>
+            {% for i in data %}
             <tr>
                 <th scope="row">1</th>
-                <td> Alwan Tsurraya </td>
-                <td> 2022-11-04 11:10:32 </td>
-                <td> Order Made </td>
+                <td> {{ i.1 }} {{ i.2 }} </td>
+                <td> {{ i.3 }} </td>
+                <td> {{ i.4 }} </td>
                 <td>
-                    <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
+                    <button onclick="location.href = '/transaction_restaurant/details/{{ i.0 }}/{{ i.3|date:'Y-m-d H:i:s' }}/{{ rname }}/{{ rbranch }}';" class="btn btn-outline-primary"> Details </button>
                     <button class="btn btn-primary"> Send </button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td> Andi Jibril </td>
-                <td> 2022-11-04 11:14:32 </td>
-                <td> Order Made </td>
-                <td>
-                    <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
-                    <button class="btn btn-primary"> Send </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td> Joe Ifmanur </td>
-                <td> 2022-11-04 11:15:32 </td>
-                <td> Order Made </td>
-                <td>
-                    <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
-                    <button class="btn btn-primary"> Send </button>
-                </td>
-            </tr>
-            <th scope="row">4</th>
-            <td> Mikayla Putri </td>
-            <td> 2022-11-04 11:30:05 </td>
-            <td> Waiting for Restaurant Confirmation </td>
-            <td>
-                <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
-                <button class="btn btn-primary"> Confirm </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row"> 5 </th>
-            <td> Wahyu Adi </td>
-            <td> 2022-11-04 11:35:06 </td>
-            <td> Waiting for Restaurant Confirmation </td>
-            <td>
-                <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
-                <button class="btn btn-primary"> Confirm </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">6</th>
-            <td> Muhammad Fikri </td>
-            <td> 2022-11-04 11:44:22 </td>
-            <td> Waiting for Restaurant Confirmation </td>
-            <td>
-                <button onclick="location.href = '{% url 'transaction_restaurant:details' %}';" class="btn btn-outline-primary"> Details </button>
-                <button class="btn btn-primary"> Confirm </button>
-            </td>
-        </tr>
+            {% endfor %}
         </tbody>
     </table>
 

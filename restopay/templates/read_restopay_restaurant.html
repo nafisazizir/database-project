@@ -4,7 +4,7 @@
 <h1 class="text-center">RestoPay</h1>
 <br>
 <div class="">
-    <h3>Balance: Rp103,000</h3>
+    <h3>Balance: Rp{{ balance }}</h3>
     <div>
         <button type="submit" class="btn btn-primary mx-2" onclick="location.href = '{% url 'restopay:topup_restaurant' %}';">Top Up</button>
         <button type="submit" class="btn btn-outline-primary mx-2" onclick="location.href = '{% url 'restopay:withdraw_restaurant' %}';">Withdraw</button>

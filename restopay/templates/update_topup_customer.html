@@ -2,18 +2,19 @@
 {% block content %}
 
 <body>
-    <h1 class="text-center">RestoPay</h1>
-    <br>
-    <form>
-      <h3>Current Balance: Rp103,000</h3>
-      <label for="topUpAmount">Amount to top up</label>
-      <input type="text" class="form-control" id="topUpAmount" placeholder="Rp50.000">
+  <h1 class="text-center">RestoPay</h1>
+  <br>
+  <form method="POST">
+    {% csrf_token %}
+    <h3>Current Balance: Rp{{ balance }}</h3>
+    <label for="amount">Amount to top up</label>
+    <input type="number" class="form-control" id="amount" name="amount" placeholder="50000" required>
 
-      <p>From:</p>
-      <p>Bank Name: BNI</p>
-      <p>Account Number: 2106658843</p>
-      <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+    <p>From:</p>
+    <p>Bank Name: {{bankName}}</p>
+    <p>Account Number: {{accountNo}}</p>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
 </body>
 
 {% endblock content %}

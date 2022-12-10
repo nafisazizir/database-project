@@ -12,4 +12,5 @@ urlpatterns = [
     path('register_customer/', register_customer, name = 'register_customer'),
     path('register_restaurant/', register_restaurant, name = 'register_restaurant'),
     path('register_courier/', register_courier, name = 'register_courier'),
+    path('logout/', logout, name = 'logout'),
 ]
