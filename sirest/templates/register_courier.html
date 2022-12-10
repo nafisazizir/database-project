@@ -8,35 +8,60 @@
 </head>
 <body>
     <div>
-        <label>Email: </label>
-        <input type="text">
-        <label>Password: </label>
-        <input type="text">
-        <label>Name: </label>
-        <input type="text">
-        <label>Phone number: </label>
-        <input type="text">
-        <label>NIK: </label>
-        <input type="text">
-        <label>Bank Name: </label>
-        <input type="text">
-        <label>Account number: </label>
-        <input type="text">
-        <label>Number plate: </label>
-        <input type="text">
-        <label>Driving lisence number: </label>
-        <input type="text">
-
-        <label for="vehicle_type">Vehicle type:</label>
-
-        <select name="vehicle_type">
-            <option value="car">Car</option>
-            <option value="motorcycle">Motorcycle</option>
-        </select>
-
-        <label>Vehicle brand: </label>
-        <input type="text">
+        <h2>Customer Registration Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+                </li>
+                <li>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required>
+                </li>
+                <li>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                    <label for="phonenumber">Phone Number:  </label>
+                    <input type="tel" name="phonenumber" id="phonenumber" required>
+                </li>
+                <li>
+                    <label for="nik">NIK:  </label>
+                    <input type="text" name="nik" id="nik" required>
+                </li>
+                <li>
+                    <label for="bankname">Bank Name:  </label>
+                    <input type="text" name="bankname" id="bankname" required>
+                </li>
+                <li>
+                    <label for="accountnumber">Account Number:  </label>
+                    <input type="text" name="accountnumber" id="accountnumber" required>
+                </li>
+                <li>
+                    <label for="numberplate">Number Plate:  </label>
+                    <input type="text" name="numberplate" id="numberplate" required>
+                </li>
+                <li>
+                    <label for="drivinglicensenumber">Driving Licnse Number:  </label>
+                    <input type="text" name="drivinglicensenumber" id="drivinglicensenumber" required>
+                </li>
+                <li>
+                    <label for="vehicletype">Vehicle Type:  </label>
+                    <select id="vehicletype" name="vehicletype" required>
+                        <option value="Car">Car</option>
+                        <option value="motorcycle">Motorcycle</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="vehiclebrand">Vehicle Brand:  </label>
+                    <input type="text" name="vehiclebrand" id="vehiclebrand" required>
+                </li>
+            </ul>
+            <button type="submit">Register</button>
+        </form>
     </div>
-    <button type="submit">Register</button>
 </body>
 </html>
