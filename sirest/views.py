@@ -116,7 +116,7 @@ def register_admin(request):
                 ('{email}', '{password}', '{name}', '{phonenum}')
             """)
 
-            # return redirect("/systemadmin")        
+            return redirect("/login")      
 
     return render(request, "register_admin.html", context)
 
