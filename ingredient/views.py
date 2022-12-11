@@ -1,48 +1,47 @@
 from django.db import connection
 from django.shortcuts import render, redirect
 
-def create_restaurant_category(request):
+def create_ingredient(request):
     context = {}
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
             SELECT name
-            FROM RESTAURANT_CATEGORY 
+            FROM INGREDIENT 
             ORDER BY name DESC
         """)
-        category = int(cursor.fetchone()[0]) + 1
-        context["name"] = category
+        ingredient = int(cursor.fetchone()[0]) + 1
+        context["name"] = ingredient
 
         if request.method == "POST":
             name = request.POST.get("name")
             cursor.execute(f"""
-                    INSERT INTO RESTAURANT_CATEGORY VALUES
+                    INSERT INTO INGREDIENT VALUES
                     ('{name}')
                 """)
-            return redirect("/r_restaurant_category/")
-            
-    return render(request, "c_restaurant_category.html", context)
+            return redirect("/ingredient/")
 
-def read_restaurant_category(request):
+    return render(request, 'c_ingredient.html', context)
+
+def read_ingredient(request):
     context = {}
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIDONA")
         cursor.execute("""
             SELECT name
-            FROM RESTAURANT_CATEGORY 
+            FROM INGREDIENT 
         """)
 
-        category = cursor.fetchone()
-        context["category"] = category[0]
+        ingredient = cursor.fetchone()
+        context["ingredient"] = ingredient[0]
 
-    return render(request, "r_restaurant_category.html", context)
+    return render(request, 'r_ingredient.html', context)
 
-
-def delete_restaurant_category(request):
+def delete_ingredient(request):
     name = request.session["name"]
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute(f"""
-        DELETE FROM RESTAURANT_CATEGORY
+        DELETE FROM INGREDIENT
         WHERE name = '{name}'""")
-        return redirect(f"/restaurant_category/")
+        return redirect(f"/ingredient/")
