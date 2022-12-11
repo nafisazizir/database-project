@@ -11,21 +11,36 @@ import datetime
 
 
 def show_fee(request):
-    return render(request, "R_delivery_fee.html",)
+    cursor = connection.cursor()
+    cursor.execute("SET search_path to SIREST;")
+    SQL = f"""
+    SELECT * FROM DELIVERY_FEE_PER_KM
+    """
+    cursor.execute(SQL)
+    alldeliveryfee = cursor.fetchall()
+
+    context = {'deliveryfee': alldeliveryfee}
+    return render(request, 'R_delivery_fee.html', context)
 
 def add_fee(request):
-#     if request.method == "POST":
-#         province = request.POST.get("province")
-#         motorate = request.POST.get("motorate")
-#         carrate = request.POST.get("carrate")
-#         Task.objects.create(
-#             user=request.user,
-#             province=province,
-#             motorate=motorate,
-#             carrate=carrate,
-#         )
-#         return HttpResponseRedirect(reverse("delivery_fee:show_fee"))
-    return render(request, "C_delivery_fee.html")
+    cursor = connection.cursor()
+    cursor.execute("SET search_path to SIREST;")
+
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        province = request.POST.get('province')
+        motorfee = request.POST.get('motorfee')
+        carfee = request.POST.get('carfee')
+        
+    if not id or not province or not motorfee or not carfee:
+        return ()
+    else:
+        newdeliveryfeeperkm = (id, province, motorfee, carfee)
+        SQL = f"""
+        INSERT INTO DELIVERY_FEE_PER_KM VALUES {newdeliveryfeeperkm}
+        """
+        cursor.execute(SQL)
+    return redirect('delivery_fee:show_fee')
 
 def change_fee(request):
 #     if request.method == "PUT":
@@ -45,18 +60,19 @@ def change_fee(request):
     return render(request, "U_delivery_fee.html")
 
 def delete_fee(request, id):
-#     if request.method == "DELETE":
-#         task = Task.objects.get(user=request.user, id=id)
-#         task.delete()
-#         return JsonResponse(
-#             {
-#                 "pk": task.id,
-#                 "fields": {
-#                     "province": task.province,
-#                     "motorate": task.motorate,
-#                     "carrate": task.carrate,
-#                 },
-#             },
-#             status=200,
-#         )
- return render(request, "U_delivery_fee.html")
+    cursor = connection.cursor()
+    cursor.execute("SET search_path to SIREST;")
+
+    SQL = f"""
+    SELECT EXISTS (SELECT * FROM DELIVERY_FEE_PER_KM WHERE id = '{id}')
+    """
+    cursor.execute(SQL)
+
+    isitthere = cursor.fetchone()[0]
+    if isitthere:
+        SQL = f"""
+        DELETE FROM DELIVERY_FEE_PER_KM WHERE id = '{id}'
+        """
+        cursor.execute(SQL)
+
+    return redirect('delivery_fee:show_fee')
