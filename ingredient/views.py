@@ -26,7 +26,7 @@ def create_ingredient(request):
 def read_ingredient(request):
     context = {}
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO SIDONA")
+        cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
             SELECT name
             FROM INGREDIENT 

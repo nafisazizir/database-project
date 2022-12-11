@@ -26,7 +26,7 @@ def create_restaurant_category(request):
 def read_restaurant_category(request):
     context = {}
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO SIDONA")
+        cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
             SELECT name
             FROM RESTAURANT_CATEGORY 
@@ -36,7 +36,6 @@ def read_restaurant_category(request):
         context["category"] = category[0]
 
     return render(request, "r_restaurant_category.html", context)
-
 
 def delete_restaurant_category(request):
     name = request.session["name"]
