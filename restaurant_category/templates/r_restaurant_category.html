@@ -17,28 +17,19 @@
             <th>Restaurant Category</th>
             <th>Action</th>
         </tr>
-        <!-- {% for i in restaurant_category %}
+        {% for i in category %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.Name }}</td>
-            <td><a href = ""><button>Delete</button></a></td>
+            <td>{{ i.0 }}</td>
+            <td>
+                <form method="POST" action="{% url 'delete_category' i.0 %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+
+            </td>
         </tr>
-        {% endfor %} -->
-        <tr>
-            <td>1</td>
-            <td>Indonesia</td>
-            <td><a href = ""><button>Delete</button></a>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>India</td>
-            <td><a href = ""><button>Delete</button></a>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Japan</td>
-            <td><a href = ""><button>Delete</button></a>
-        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

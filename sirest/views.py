@@ -325,8 +325,3 @@ def register_courier(request):
                     context['message'] = e
 
     return render(request, 'register_courier.html', context)
-
-
-# update restaurant 
-# set email = 'email'
-# where email = 'email';
