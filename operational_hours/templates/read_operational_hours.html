@@ -16,76 +16,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td> Monday </td>
-            <td> 08:00:00 </td>
-            <td> 21:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row"> 2 </th>
-            <td> Tuesday </td>
-            <td> 08:00:00 </td>
-            <td> 21:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td> Wednesday </td>
-            <td> 08:00:00 </td>
-            <td> 21:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td> Thursday </td>
-            <td> 08:00:00 </td>
-            <td> 21:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">5</th>
-            <td> Friday </td>
-            <td> 08:00:00 </td>
-            <td> 23:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">6</th>
-            <td> Saturday </td>
-            <td> 08:00:00 </td>
-            <td> 23:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">7</th>
-            <td> Sunday </td>
-            <td> 08:00:00 </td>
-            <td> 21:00:00 </td>
-            <td>
-                <button onclick="location.href = '{% url 'operational_hours:update' %}';" class="btn btn-primary"> Edit </button>
-                <button class="btn btn-outline-primary"> Delete </button>
-            </td>
-        </tr>
+            {% for i in data %}
+            <tr>
+                <th scope="row">1</th>
+                <td> {{ i.0 }} </td>
+                <td> {{ i.1 }} </td>
+                <td> {{ i.2 }} </td>
+                <td>
+                    <button onclick="location.href = '/operational_hours/update/{{ i.3 }}/{{ i.4 }}/{{ i.0 }}';" class="btn btn-primary"> Edit </button>
+                    <button onclick="location.href = '/operational_hours/delete/{{ i.3 }}/{{ i.4 }}/{{ i.0 }}';" class="btn btn-outline-primary"> Delete </button>
+                </td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
 

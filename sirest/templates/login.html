@@ -7,14 +7,26 @@
     <title>SIREST</title>
 </head>
 <body>
-    <form>
-        <div>
-            <label>Email: </label>
-            <input type="text">
-            <label>Password: </label>
-            <input type="text">
-        </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </li>
+        </ul>
         <button type="submit">Login</button>
     </form>
+
+    {% if message %}
+        <script>
+            window.alert("{{message}}")
+        </script>
+    {% endif %}
+
 </body>
 </html>

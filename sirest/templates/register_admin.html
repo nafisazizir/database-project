@@ -8,15 +8,29 @@
 </head>
 <body>
     <div>
-        <label>Email: </label>
-        <input type="text">
-        <label>Password: </label>
-        <input type="text">
-        <label>Name: </label>
-        <input type="text">
-        <label>Phone number: </label>
-        <input type="text">
+        <h2>Admin Registration Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+                </li>
+                <li>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required>
+                </li>
+                <li>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                    <label for="phonenumber">Phone Number:  </label>
+                    <input type="tel" name="phonenumber" id="phonenumber" required>
+                </li>
+            </ul>
+            <button type="submit">Register</button>
+        </form>
     </div>
-    <button type="submit">Register</button>
 </body>
 </html>
