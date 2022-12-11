@@ -1,0 +1,44 @@
+{% extends 'restaurant_base.html' %}
+{% block content %}
+
+  <html>
+    <head>
+      <style>
+        th, td {
+          padding: 5px;
+        }
+        </style>
+    </head>
+    <body>
+      <h5>Menu</h5>
+      <table>
+        <tr>
+        <th>No</th>
+        <th>Food Name</th>
+        <th>Description</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Food Category</th>
+        <th>Ingredients</th>
+        <th>action</th>
+      </tr>
+      <tr>
+        {% for item in list_item %}
+        <td>{{item.pk}}</td>
+        <td>{{item.fname}}</td>
+        <td>{{item.desc}}</td>
+        <td>{{item.stock}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.fatcat}}</td>
+        <td>{{item.yngvi}}</td>
+        {%endfor%}
+        <td>
+          <button type="submit" id="editbutton"><a href="/food/change_food">Edit</a></button><br>
+          <button type="submit" id="delete_${task.pk}">Delete</button>
+        </td>
+    </tr>
+    </table>
+    </body>
+  </html>
+{% endblock content %}
+

@@ -1,0 +1,46 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<body>
+    <h2>Order Summary</h2>
+    <p>Time of order creation: 2022-11-04 11:30:05</p>
+
+    <p>Customer Name: Mikayla Putri
+        Street: Jalan Bahagia nomor 72
+        District: Cinere
+        City: Depok
+        Province: Jawa Barat
+        </p>
+
+    <p>Restaurant: Warung Mantap Depok
+        Street: Jalan Sejahtera nomor 5
+        District: Bojongsari
+        City: Depok
+        Province: Jawa Barat
+        </p>
+
+    <p>Food ordered:
+        Ayam Goreng (1) - [Notes if any]
+        Ice Cream (2) - [Notes if any]
+        Total Food Price: 11000
+        Total Discount: 0
+        Delivery Fee: 4000
+        Total Cost: 15000
+        Payment Method: RestoPay
+        </p>
+
+    <p>Payment Status: Succeed
+        Order Status: Waiting for Restaurant Confirmation
+        </p>
+
+    <p>Courier: -
+        Number Plate: -
+        Vehicle Type: -
+        Vehicle Brand: -
+        </p>
+
+
+    <a href="localhost:8000/order_transaction_customer/orders">[Back]</a>
+</body>
+
+{% endblock content %}

@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'customer_base.html' %}
 {% block content %}
 
 <body>
-    <h2>Create Food Category</h2>
+    <h2>Input Food Delivery Address</h2>
     {% csrf_token %}
     <form>
         <div>
@@ -21,7 +21,7 @@
             <label>Province: </label>
             <select></select>
         </div>
-        <button type="submit">Continue</button>
+        <a href="localhost:8000/order_transaction_customer/restaurant">[Continue]</a>
     </form>
 </body>
 

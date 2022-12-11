@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'admin_base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
     <style>
         table, th, td {
             border: 1px solid black;
@@ -12,22 +11,23 @@
     </style>
 </head>
 <body>
-    {% include base.html %}
-    {% block content %}
+    <h2>Food Categories</h2>
     <table>
         <tr>
             <th>No</th>
-            <th>Food Ingredient Name</th>
+            <th>Food Category</th>
             <th>Action</th>
         </tr>
-        {% for i in Ingredient %}
         <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ i.Name }}</td>
+            <td>1</td>
+            <td>Snack</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Minuman</td>
             <td><a href = ""><button>Delete</button></a></td>
         </tr>
-        {% endfor %}
     </table>
-    {% endblock %}
 </body>
-</html>
+
+{% endblock content %}

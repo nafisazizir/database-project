@@ -1,0 +1,36 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Restaurant Selection</h2>
+    {% csrf_token %}
+    <form>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Restaurant Branch Name</th>
+                <th>Active Promo</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>KFC Margonda</td>
+                <td>Promo 17 Agustusan</td>
+                <td><a href="localhost:8000/order_transaction_customer/select">[Select]</a></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+{% endblock content %}

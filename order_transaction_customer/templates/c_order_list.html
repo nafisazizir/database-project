@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'customer_base.html' %}
 {% block content %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,24 +11,26 @@
         }
     </style>
 </head>
+
 <body>
-    <h2>Food Categories</h2>
+    <h2>Order List</h2>
     <table>
         <tr>
             <th>No</th>
-            <th>Food Category</th>
-            <th>Action</th>
+            <th>Foodname</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Item Total Price</th>
         </tr>
         <tr>
             <td>1</td>
-            <td>Snack</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Minuman</td>
-            <td><a href = ""><button>Delete</button></a></td>
+            <td>Original Chicken Bucket</td>
+            <td>45000</td>
+            <td>1</td>
+            <td>45000</td>
         </tr>
     </table>
+    <a href="localhost:8000/order_transaction_customer/confirm">[Confirm]</a>
 </body>
 
 {% endblock content %}

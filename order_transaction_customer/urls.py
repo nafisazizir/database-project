@@ -5,13 +5,38 @@ app_name = "order_transaction_customer"
 
 urlpatterns = [
     path(
-        "create_order_transaction_customer",
-        create_order_transaction_customer,
-        name="create_order_transaction_customer",
+        "",
+        create_order_transaction_customer_1,
+        name="order1",
     ),
     path(
-        "read_order_transaction_customer",
-        read_order_transaction_customer,
-        name="read_order_transaction_customer",
+        "restaurant",
+        create_order_transaction_customer_2,
+        name="order2",
+    ),
+    path(
+        "select",
+        create_order_transaction_customer_3,
+        name="order3",
+    ),
+    path(
+        "payment",
+        create_order_transaction_customer_4,
+        name="order4",
+    ),
+    path(
+        "confirm",
+        create_order_transaction_customer_5,
+        name="order5",
+    ),
+    path(
+        "orders",
+        read_order_transaction_customer_1,
+        name="read_order1",
+    ),
+    path(
+        "order-summary",
+        read_order_transaction_customer_2,
+        name="read_order2",
     ),
 ]

@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+
+  <html>
+    <head>
+      <style>
+        th, td {
+          padding: 5px;
+        }
+        </style>
+    </head>
+    <body>
+      <h5>Restaurants</h5>
+      <table>
+        <tr>
+        <th>No</th>
+        <th>Restaurant's Branch</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Sushi Tei Lombok</td>
+        <td>6</td>
+        <td>
+          <button type="submit" id="showdetail"><a href="/food/details">Details</a></button><br>
+          <button type="submit" id="showmenu"><a href="/food/menu">Menu</a></button>
+        </td>
+    </tr>
+    </table>
+    </body>
+  </html>
+{% endblock content %}
+

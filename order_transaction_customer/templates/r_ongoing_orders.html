@@ -1,0 +1,42 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Ongoing Orders</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Restaurant</th>
+            <th>Time of Order Creation</th>
+            <th>Order Status</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>KFC Margonda</td>
+            <td>2022-11-04 11:30:05</td>
+            <td>Waiting for Restaurant Confirmation</td>
+            <td><a href="localhost:8000/order_transaction_customer/order-summary">[Details]</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>KFC Pondok Indah</td>
+            <td>2022-11-04 11:35:45</td>
+            <td>Waiting for Restaurant Confirmation</td>
+            <td><a href="localhost:8000/order_transaction_customer/order-summary">[Details]</a></td>
+        </tr>
+    </table>
+</body>
+
+{% endblock content %}
