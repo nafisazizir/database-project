@@ -11,7 +11,6 @@ def logout(request):
     request.session.clear()
     return redirect("/login")
 
-
 def login(request):
     context =  {}
     role = ''
