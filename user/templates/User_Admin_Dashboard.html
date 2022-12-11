@@ -1,13 +1,13 @@
 {% extends 'admin_base.html' %}
 {% block content %}
-<h1 class="text-center"> User Dashboard: ADMIN SIREST </h1>
 
+<h1 class="text-center"> User Dashboard: {{user_acc.2}} {{user_acc.3}} </h1>
 <br>
 
-<p>Email: admin@gmail.com</p>
-<p>Password: aneh banget password masa di show!?</p>
-<p>Name: Coba Tebak Aku Siapa</p>
-<p>Phone Number: 12345677890</p>
+<p>Email: {{user_acc.0}}</p>
+<p>Password: {{user_acc.1}}</p>
+<p>Name: {{user_acc.2}} {{user_acc.3}}</p>
+<p>Phone Number: {{user_acc.4}}</p>
 
 <table class="table table-hover">
     <thead>
@@ -21,25 +21,26 @@
     </thead>
     <tbody>
     <tr>
+        {% for i in transaction_actor %}
         <tr>
-            <td> mutia@gmail.com </td>
-            <td> Mutia Anisa </td>
-            <td> User </td>
-            <td> Not Been Verified </td>
-            <td>
-                <button class="btn btn-outline-primary"> Details </button>
-                <button class="btn btn-primary"> Verification </button>
-            </td>
+            <td> {{i.0}} </td>
+            <td> {{i.1}} {{i.2}} </td>
+            <td> {{i.3}} </td>
+            {% if i.4 == None %}
+                <td> Not Verified </td>
+                <td>
+                    <button class="btn btn-outline-primary"> Details </button>
+                    <button onclick="location.href = '/user/update/{{i.0}}';" class="btn btn-primary"> Verification </button>
+                </td>
+            {% else %}
+                <td> Verified </td>
+                <td>
+                    <button onclick="location.href = '/user/details/{{i.0}}/{{i.3}}';" class="btn btn-primary"> Details </button>
+                </td>
+            {% endif %}
         </tr>
-        <tr>
-            <td> cahyo@gmail.com </td>
-            <td> Cahyo Budi </td>
-            <td> Courier </td>
-            <td> Verified </td>
-            <td>
-                <button class="btn btn-outline-primary"> Details </button>
-            </td>
-        </tr>
+        {% endfor %}
+        
     </tbody>
 </table>
 {% endblock content %}

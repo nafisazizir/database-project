@@ -6,4 +6,5 @@ app_name = 'transaction_restaurant'
 urlpatterns = [
     path('', read_transaction, name='read_transaction'),
     path('details/<str:custEmail>/<str:timestamp>/<str:rname>/<str:rbranch>', details, name='details'),
+    path('upadte/<str:custEmail>/<str:timestamp>/<str:tsid>/', update, name='upadte'),
 ]
