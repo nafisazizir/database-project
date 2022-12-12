@@ -32,8 +32,8 @@ def read_restaurant_category(request):
             FROM RESTAURANT_CATEGORY 
         """)
 
-        category = cursor.fetchone()
-        context["category"] = category[0]
+        category = cursor.fetchall()
+        context["category"] = category
 
     return render(request, "r_restaurant_category.html", context)
 
