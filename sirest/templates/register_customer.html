@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIREST</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
+
 <body>
     <div>
         <h2>Customer Registration Form</h2>
@@ -52,8 +47,10 @@
                     </select>
                 </li>
             </ul>
+            <p>{{message}}</p>
             <button type="submit">Register</button>
         </form>
     </div>
 </body>
-</html>
+
+{% endblock content %}
