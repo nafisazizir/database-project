@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIREST</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
+
 <body>
     <div>
-        <h2>Customer Registration Form</h2>
+        <h2>Courier Registration Form</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <ul>
@@ -52,7 +47,7 @@
                     <label for="vehicletype">Vehicle Type:  </label>
                     <select id="vehicletype" name="vehicletype" required>
                         <option value="Car">Car</option>
-                        <option value="motorcycle">Motorcycle</option>
+                        <option value="Motorcycle">Motorcycle</option>
                     </select>
                 </li>
                 <li>
@@ -64,4 +59,5 @@
         </form>
     </div>
 </body>
-</html>
+
+{% endblock content %}

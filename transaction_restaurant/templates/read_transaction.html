@@ -25,7 +25,9 @@
                 <td> {{ i.4 }} </td>
                 <td>
                     <button onclick="location.href = '/transaction_restaurant/details/{{ i.0 }}/{{ i.3|date:'Y-m-d H:i:s' }}/{{ rname }}/{{ rbranch }}';" class="btn btn-outline-primary"> Details </button>
-                    <button class="btn btn-primary"> Send </button>
+                    {% if i.5 != "3.0" %}
+                        <button onclick="location.href = '/transaction_restaurant/upadte/{{ i.0 }}/{{ i.3|date:'Y-m-d H:i:s' }}/{{ i.5 }}';" class="btn btn-primary"> {% if i.5 == "1.0" %} Confirm {% elif i.5 == "2.0" %} Send {% endif %}</button>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

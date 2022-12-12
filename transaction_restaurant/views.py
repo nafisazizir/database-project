@@ -17,7 +17,7 @@ def read_transaction(request):
 
     cursor.execute("SET SEARCH_PATH TO SIREST")
     cursor.execute(f"""
-    select email, fname, lname, createdDate, ts2.name
+    select email, fname, lname, createdDate, ts2.name, ts2.id
     from (
     select u.email, Fname, Lname,
             min(th.datetime) as createdDate,
@@ -134,3 +134,27 @@ def details(request, custEmail, timestamp, rname, rbranch):
             'courier' : courier}
 
     return render(request, 'details_transaction_restaurant.html', context)
+
+def update(request, custEmail, timestamp, tsid):
+    # login required
+    cursor = connection.cursor()
+    cursor.execute("SET SEARCH_PATH TO PUBLIC")
+
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'restaurant':
+        return redirect('sirest:logout')
+    # end of login required
+
+    if tsid == '1.0':
+        tsid = '2.0'
+    elif tsid == '2.0':
+        tsid = '3.0'
+
+    cursor.execute("SET SEARCH_PATH TO SIREST")
+    cursor.execute(f"""
+    insert into transaction_history values
+    ('{custEmail}', '{timestamp}', '{tsid}', now())
+    """)
+
+    return redirect('transaction_restaurant:read_transaction')

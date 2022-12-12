@@ -1,27 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'admin_base.html' %}
 
 {% block content %}
-<h1 class="text-center"> PROFILE </h1>
+<h1 class="text-center"> User Profile: {{user_acc.2}} {{user_acc.3}} </h1>
 <br>
 
-<p>Email: customer@gmail.com</p>
-<p>Password: aneh banget password masa di show!?</p>
-<p>Name: Nafis Azizi Riza</p>
-<p>Phone Number: 12345677890</p>
-<p>NIK: 1234567890</p>
-<p>Bank Name: BNI</p>
-<p>Account Number: 1234567890</p>
+<p>Email: {{user_acc.0}}</p>
+<p>Password: {{user_acc.1}}</p>
+<p>Name: {{user_acc.2}} {{user_acc.3}}</p>
+<p>Phone Number: {{user_acc.4}}</p>
+<p>NIK: {{transaction_actor.0}}</p>
+<p>Bank Name: {{transaction_actor.1}}</p>
+<p>Account Number: {{transaction_actor.2}}</p>
 
 <br>
-<p>Birth Date: 31 Feb 2025</p>
-<p>Gender: Male</p>
+<p>Birth Date: {{customer_data.0}}</p>
+<p>Gender: {{customer_data.1}}</p>
 
 <br>
-<p>Status: Verified</p>
-<p>Verified by: Admin SIREST</p>
+{% if verificator == None %}
+<p>Status: Not Verified</p>
+{% else %}
+    <p>Status: Verified</p>
+    <p>Verified by: {{verificator.1}} {{verificator.2}}</p>
+{% endif %}
 
 <br>
-<p>RestoPay Balance: 0</p>
+<p>RestoPay Balance: {{transaction_actor.4}}</p>
 
-<button type="submit" class="btn btn-primary">Back</button>
+<button onclick="location.href = '/user/admin';" type="submit" class="btn btn-primary">Back</button>
 {% endblock content %}
