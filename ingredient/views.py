@@ -5,11 +5,20 @@ import random, string
 def create_ingredient(request):
     context = {}
 
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'admin':
+        return redirect('sirest:logout')
+
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         
         if request.method == "POST":
-            random_id = "".join(('I' + random.choice(string.digits)))
+            # generate random ID
+            randomnum = ''.join(random.choice(string.digits) for i in range(2))
+            i = "I"
+            random_id = i + randomnum
+
             ingredient_name = request.POST.get("ingredient_name")
 
             cursor.execute(f"""
@@ -23,6 +32,12 @@ def create_ingredient(request):
 
 def read_ingredient(request):
     context = {}
+
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'admin':
+        return redirect('sirest:logout')
+    
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
@@ -35,27 +50,12 @@ def read_ingredient(request):
 
     return render(request, 'r_ingredient.html', context)
 
-# def delete_ingredient(request):
-#     name = request.session["name"]
-#     with connection.cursor() as cursor:
-#         cursor.execute("SET SEARCH_PATH TO SIREST")
-#         cursor.execute(f"""
-#         DELETE FROM INGREDIENT
-#         WHERE name = '{name}'""")
-#         return redirect(f"/ingredient/")
-
-def delete_ingredient(request):
-    context = {}
-    nama = request.session["nama"]
-
+def delete_ingredient(request, ingredient_name):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
-        
-        if request.method == "POST":
-            cursor.execute(f"""
-                DELETE FROM INGREDIENT
-                WHERE name = '{nama}'
-            """)
+        cursor.execute(f"""
+            DELETE FROM INGREDIENT
+            WHERE name = '{ingredient_name}'
+        """)
 
-            return redirect("/ingredient/")
-    return render(request, "r_ingredient.html", context)
+        return redirect("/ingredient/")
