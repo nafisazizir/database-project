@@ -1,4 +1,4 @@
-{% extends 'restaurant_base.html' %}
+{% extends 'admin_base.html' %}
 {% block content %}
 <head>
     <meta charset="UTF-8">
@@ -21,14 +21,10 @@
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ i.0 }}</td>
-            <td><a href = 'delete_ingredient/{{ i.0 }}'><button>Delete</button></a></td>
-            <!-- <td>
-                <form method="POST" action="{% url 'delete_ingredient' i.0 %}">
-                    {% csrf_token %}
-                    <button type="submit">Delete</button>
-                </form>
+            <td>
+                <a href = 'delete_ingredient/{{ i.0 }}'><button>Delete</button></a>
 
-            </td> -->
+            </td>
         </tr>
         {% endfor %}
     </table>
