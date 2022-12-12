@@ -1,16 +1,25 @@
 from django.db import connection
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 import random, string
 
 def create_restaurant_category(request):
     context = {}
 
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'admin':
+        return redirect('sirest:logout')
+
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
 
         if request.method == "POST":
-            random_id = "".join(('RC' + random.choice(string.digits)))
             category_name = request.POST.get("category_name")
+
+            # generate random ID
+            randomnum = ''.join(random.choice(string.digits) for i in range(2))
+            rc = "RC"
+            random_id = rc + randomnum
 
             cursor.execute(f"""
                 INSERT INTO RESTAURANT_CATEGORY VALUES
@@ -23,6 +32,12 @@ def create_restaurant_category(request):
 
 def read_restaurant_category(request):
     context = {}
+    
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'admin':
+        return redirect('sirest:logout')
+
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
@@ -35,26 +50,12 @@ def read_restaurant_category(request):
 
     return render(request, "r_restaurant_category.html", context)
 
-def delete_restaurant_category(request):
-    context = {}
-    name = request.session["nama"]
+def delete_restaurant_category(request, category_name):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
-        
-        cursor.execute("""
-            SELECT DISTINCT RC.Id
-            FROM RESTAURANT_CATEGORY RC, RESTAURANT R
-            WHERE RC.Id= R.RCategory
+        cursor.execute(f"""
+            DELETE FROM RESTAURANT_CATEGORY
+            WHERE name = '{category_name}'
         """)
 
-        reffered_id = cursor.fetchall()
-        context["reffered_id"] = reffered_id
-
-        if request.method == "POST":
-            cursor.execute(f"""
-                DELETE FROM RESTAURANT_CATEGORY
-                WHERE name = '{name}'
-            """)
-            return redirect(f"/restaurant_category/")
-    
-    return render(request, 'read_restaurant_category.html', context)
+        return redirect("/restaurant_category/")

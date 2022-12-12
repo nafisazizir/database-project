@@ -6,8 +6,8 @@ def read_order_transaction_courier(request):
     with connection.cursor() as cursor:
         cursor.execute(f"SET SEARCH_PATH TO SIREST")
         cursor.execute(f"""
-            SELECT TF.RBranch, U.FName, U.LName, TH.Datetime, TS.Name
-            FROM USER_ACC U, TRANSACTION_FOOD TF, TRANSACTION_HISTORY TH, TRANSACTION_STATUS TS, CUSTOMER C, TRANSACTION_ACTOR TA
+            SELECT DISTINCT TF.RBranch, CONCAT(U.FName, ' ', U.LName), TH.Datetime, TS.Name
+            FROM USER_ACC U, TRANSACTION_FOOD TF, TRANSACTION_HISTORY TH, TRANSACTION_STATUS TS, CUSTOMER C, TRANSACTION_ACTOR TA, TRANSACTION T
             WHERE U.Email = TA.Email 
             AND T.Email = C.Email 
             AND C.Email = T.Email
