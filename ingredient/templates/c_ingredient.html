@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>Food Ingredient Form</h1>
-    {% csrf_token %}
-    <form>
-        <div>
-            <label>Food Ingredient Name: </label>
-            <input type="text">
-        </div>
-        <button type="submit">Save</button>
-    </form>
+    <div>
+        <h2>Food Ingredient Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="ingredient_name"> Food Ingredient Name: </label>
+                    <input type="text" name="ingredient_name" id="ingredient_name" required>
+                </li>
+            </ul>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>
 {% endblock %}
