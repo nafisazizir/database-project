@@ -32,8 +32,8 @@ def read_ingredient(request):
             FROM INGREDIENT 
         """)
 
-        ingredient = cursor.fetchone()
-        context["ingredient"] = ingredient[0]
+        ingredient = cursor.fetchall()
+        context["ingredient"] = ingredient
 
     return render(request, 'r_ingredient.html', context)
 
