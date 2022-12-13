@@ -4,10 +4,10 @@ from django.db import connection
 
 
 def read_order_transaction_courier(request):
-    # if not request.session.get("isLoggedIn"):
-    #     return redirect('sirest:logout')
-    # if not request.session.get("role") == 'courier':
-    #     return redirect('sirest:logout')
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'courier':
+        return redirect('sirest:logout')
 
     context = {}
     with connection.cursor() as cursor:
@@ -32,10 +32,10 @@ def read_order_transaction_courier(request):
 
 
 def summary_order_transaction_courier(request, restaurant_branch):
-    # if not request.session.get("isLoggedIn"):
-    #     return redirect('sirest:logout')
-    # if not request.session.get("role") == 'courier':
-    #     return redirect('sirest:logout')
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'courier':
+        return redirect('sirest:logout')
 
     context = {}
 
