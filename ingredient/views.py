@@ -41,8 +41,10 @@ def read_ingredient(request):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
-            SELECT name
-            FROM INGREDIENT 
+            SELECT DISTINCT I.Id, FI.Ingredient, I.Name
+            FROM INGREDIENT I
+            LEFT OUTER JOIN FOOD_INGREDIENT FI
+            ON I.Id = FI.Ingredient; 
         """)
 
         ingredient = cursor.fetchall()

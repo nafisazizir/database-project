@@ -12,6 +12,13 @@ def create_restaurant_category(request):
 
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
+        cursor.execute("""
+            SELECT Name
+            FROM RESTAURANT_CATEGORY
+        """)
+
+        category_table = cursor.fetchall()
+        context["category_table"] = category_table
 
         if request.method == "POST":
             category_name = request.POST.get("category_name")
@@ -41,8 +48,10 @@ def read_restaurant_category(request):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
-            SELECT name
-            FROM RESTAURANT_CATEGORY 
+            SELECT DISTINCT RC.Id, R.RCategory, RC.Name
+            FROM RESTAURANT_CATEGORY RC
+            LEFT OUTER JOIN RESTAURANT R
+            ON RC.Id = R.RCategory;
         """)
 
         category = cursor.fetchall()

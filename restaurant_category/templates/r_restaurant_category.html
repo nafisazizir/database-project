@@ -20,8 +20,14 @@
         {% for i in category %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.0 }}</td>
-            <td><a href = 'delete_category/{{ i.0 }}'><button>Delete</button></a></td>
+            <td>{{ i.2 }}</td>
+            <td>
+                {% if i.1 != i.0 %}
+                <a href = 'delete_category/{{ i.2 }}'><button>Delete</button></a>
+                {% else %}
+                <p></p>
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>

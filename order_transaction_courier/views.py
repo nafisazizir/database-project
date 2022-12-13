@@ -34,7 +34,13 @@ def summary_order_transaction_courier(request):
             f"""
             SELECT TH.Datetime, U.FName, U.LName, T.Street, T.District, T.City, T.Province, 
             R.RName, R.Street, R.District, R.City, R.Province, 
-        """
-        )
+            FROM USER_ACC U, TRANSACTION_FOOD TF, TRANSACTION_HISTORY TH, TRANSACTION_STATUS TS, CUSTOMER C, TRANSACTION_ACTOR TA, TRANSACTION T
+            WHERE U.Email = TA.Email 
+            AND T.Email = C.Email 
+            AND C.Email = T.Email
+            AND T.Email = TF.Email
+            AND TF.Datetime = TH.Datetime
+            AND TH.TSId = TS.Id
+        """)
 
     return render(request, "summary_order_transaction_courier.html", context)

@@ -20,9 +20,13 @@
         {% for i in ingredient %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.0 }}</td>
+            <td>{{ i.2 }}</td>
             <td>
-                <a href = 'delete_ingredient/{{ i.0 }}'><button>Delete</button></a>
+                {% if i.1 != i.0 %}
+                <a href = 'delete_ingredient/{{ i.2 }}'><button>Delete</button></a>
+                {% else %}
+                <p></p>
+                {% endif %}
 
             </td>
         </tr>
