@@ -190,8 +190,10 @@ def read_restopay_courier(request):
     cursor.execute("SET SEARCH_PATH TO PUBLIC")
 
     if not request.session.get("isLoggedIn"):
+        print("nggak login")
         return redirect('sirest:logout')
     if not request.session.get("role") == 'courier':
+        print("nggak kurir")
         return redirect('sirest:logout')
     # end of login required
 
