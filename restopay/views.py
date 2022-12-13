@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
 
 # --------- RESTAURANT ---------
 def read_restopay_restaurant(request):
@@ -23,6 +24,7 @@ def read_restopay_restaurant(request):
 
     return render(request, "read_restopay_restaurant.html", context)
 
+@csrf_exempt
 def topup_restaurant(request):
     # login required
     cursor = connection.cursor()
@@ -60,6 +62,7 @@ def topup_restaurant(request):
 
     return render(request, "update_topup_restaurant.html", context)
 
+@csrf_exempt
 def withdraw_restaurant(request):
     # login required
     cursor = connection.cursor()
@@ -114,6 +117,7 @@ def read_restopay_customer(request):
 
     return render(request, "read_restopay_customer.html", context)
 
+@csrf_exempt
 def topup_customer(request):
     # login required
     cursor = connection.cursor()
@@ -151,6 +155,7 @@ def topup_customer(request):
 
     return render(request, "update_topup_customer.html", context)
 
+@csrf_exempt
 def withdraw_customer(request):
     # login required
     cursor = connection.cursor()
@@ -207,6 +212,7 @@ def read_restopay_courier(request):
 
     return render(request, "read_restopay_courier.html", context)
 
+@csrf_exempt
 def topup_courier(request):
     # login required
     cursor = connection.cursor()
@@ -244,6 +250,7 @@ def topup_courier(request):
 
     return render(request, "update_topup_courier.html", context)
 
+@csrf_exempt
 def withdraw_courier(request):
     # login required
     cursor = connection.cursor()
