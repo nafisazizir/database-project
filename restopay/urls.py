@@ -10,7 +10,7 @@ urlpatterns = [
     path('customer', read_restopay_customer, name='read_restopay_customer'),
     path('topup_customer', topup_customer, name='topup_customer'),
     path('withdraw_customer', withdraw_customer, name='withdraw_customer'),
-    path('courier', read_restopay_customer, name='read_restopay_courier'),
-    path('topup_courier', topup_customer, name='topup_courier'),
-    path('withdraw_courier', withdraw_customer, name='withdraw_courier'),
+    path('courier', read_restopay_courier, name='read_restopay_courier'),
+    path('topup_courier', topup_courier, name='topup_courier'),
+    path('withdraw_courier', withdraw_courier, name='withdraw_courier'),
 ]
