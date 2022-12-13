@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def create(request):
     # login required
     cursor = connection.cursor()
@@ -71,6 +73,7 @@ def read(request):
 
     return render(request, 'read_operational_hours.html', context)
 
+@csrf_exempt
 def update(request, rname, rbranch, day):
     # login required
     cursor = connection.cursor()
