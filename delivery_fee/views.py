@@ -11,6 +11,10 @@ from django.core import serializers
 from django.db import connection
 
 def show_fee(request):
+    if not request.session.get("isLoggedIn"):
+        return redirect('sirest:logout')
+    if not request.session.get("role") == 'admin':
+        return redirect('sirest:logout')
     errors = []
     cursor = connection.cursor()
     cursor.execute("SET search_path to PUBLIC")

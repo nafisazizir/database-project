@@ -33,7 +33,7 @@ def show_food(request):
 def add_food(request):
     if not request.session.get("isLoggedIn"):
         return redirect('sirest:logout')
-    if not request.session.get("role") == 'admin':
+    if not request.session.get("role") == 'restaurant':
         return redirect('sirest:logout')
 
     def varcharRandomizer():
@@ -82,7 +82,7 @@ def add_food(request):
 def change_food(request):
     if not request.session.get("isLoggedIn"):
         return redirect('sirest:logout')
-    if not request.session.get("role") == 'admin':
+    if not request.session.get("role") == 'restaurant':
         return redirect('sirest:logout')
     # if request.method == "PUT":
     #     task = Task.objects.get(user=request.user, id=id)
