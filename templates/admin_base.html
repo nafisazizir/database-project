@@ -22,18 +22,18 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'user:show_courier_dash' %}">Dashboard</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'user:show_admin_dash' %}">Dashboard</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Restaurant</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                        <li><a class="dropdown-item" href="restaurant_category/templates/r_restaurant_category.html/">Restaurant Category List</a></li>
-                        <li><a class="dropdown-item" href="restaurant_category/templates/c_restaurant_category.html/">Create Restaurant Category</a></li>
+                        <li><a class="dropdown-item" href="{% url 'restaurant_category:read_restaurant_category' %}">Restaurant Category List</a></li>
+                        <li><a class="dropdown-item" href="{% url 'restaurant_category:create_restaurant_category' %}">Create Restaurant Category</a></li>
                         <li><a class="dropdown-item" href="#">Food Category List</a></li>
                         <li><a class="dropdown-item" href="#">Create Food Category</a></li>
-                        <li><a class="dropdown-item" href="food_ingredient/templates/r_food_ingredient.html/">Food Ingredient List</a></li>
-                        <li><a class="dropdown-item" href="food_ingredient/templates/c_food_ingredient.html/">Create Food Ingredient</a></li>
-                        <li><a class="dropdown-item" href="#">Restaurant and Food List</a></li>
+                        <li><a class="dropdown-item" href="ingredient/">Food Ingredient List</a></li>
+                        <li><a class="dropdown-item" href="ingredient/create">Create Food Ingredient</a></li>
+                        <li><a class="dropdown-item" href="{% url 'food:show_resto_list' %}">Restaurant and Food List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

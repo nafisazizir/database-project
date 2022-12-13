@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIREST</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
+
 <body>
     <div>
-        <h2>Restaurant Registration Form</h2>
+        <h2 class="text-center">Restaurant Registration Form</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <ul>
@@ -68,16 +63,19 @@
                     <label for="province">Province:  </label>
                     <input type="text" name="province" id="province" required>
                 </li>
-                <!-- <li>
+                <li>
                     <label for="restaurantcategory">Restaurant Category:  </label>
-                    <select id="gender" name="gender" required>
-                        {% for i in restaurant_category %}
-                        <option value="i.RCId">Male</option>
+                    <select id="restaurantcategory" name="restaurantcategory" required>
+                        {% for i in category %}
+                            <option value="{{i.0}}">{{i.1}}</option>
+                        {% endfor %}
                     </select>
-                </li> -->
+                </li>
             </ul>
+            <p>{{message}}</p>
             <button type="submit">Register</button>
         </form>
     </div>
 </body>
-</html>
+
+{% endblock content %}

@@ -1,8 +1,8 @@
 from django.db import connection
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 import random, string
 
-def create_restaurant_category(request):
+def create_ingredient(request):
     context = {}
 
     if not request.session.get("isLoggedIn"):
@@ -12,50 +12,50 @@ def create_restaurant_category(request):
 
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
-
+        
         if request.method == "POST":
-            category_name = request.POST.get("category_name")
-
             # generate random ID
             randomnum = ''.join(random.choice(string.digits) for i in range(2))
-            rc = "RC"
-            random_id = rc + randomnum
+            i = "I"
+            random_id = i + randomnum
+
+            ingredient_name = request.POST.get("ingredient_name")
 
             cursor.execute(f"""
-                INSERT INTO RESTAURANT_CATEGORY VALUES
-                ('{random_id}', '{category_name}')
+                INSERT INTO INGREDIENT VALUES
+                ('{random_id}', '{ingredient_name}')
             """)
 
-            return redirect("/restaurant_category/")
+            return redirect("/ingredient/")
+        
+    return render(request, "c_ingredient.html", context)
 
-    return render(request, "c_restaurant_category.html", context)
-
-def read_restaurant_category(request):
+def read_ingredient(request):
     context = {}
-    
+
     if not request.session.get("isLoggedIn"):
         return redirect('sirest:logout')
     if not request.session.get("role") == 'admin':
         return redirect('sirest:logout')
-
+    
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute("""
             SELECT name
-            FROM RESTAURANT_CATEGORY 
+            FROM INGREDIENT 
         """)
 
-        category = cursor.fetchall()
-        context["category"] = category
+        ingredient = cursor.fetchall()
+        context["ingredient"] = ingredient
 
-    return render(request, "r_restaurant_category.html", context)
+    return render(request, 'r_ingredient.html', context)
 
-def delete_restaurant_category(request, category_name):
+def delete_ingredient(request, ingredient_name):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
         cursor.execute(f"""
-            DELETE FROM RESTAURANT_CATEGORY
-            WHERE name = '{category_name}'
+            DELETE FROM INGREDIENT
+            WHERE name = '{ingredient_name}'
         """)
 
-        return redirect("/restaurant_category/")
+        return redirect("/ingredient/")

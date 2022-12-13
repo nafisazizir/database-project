@@ -33,28 +33,28 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'example_app',
-    'sirest',
-    'restaurant_category',
-    'order_transaction_courier',
-    'order_transaction_customer',
-    'food_ingredient',
-    'food_category',
-    'delivery_fee',
-    'food',
-    'crud_promo',
-    'crud_resto',
-    'transaction_history',
-    'operational_hours',
-    'restopay',
-    'transaction_restaurant',
-    'user',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "example_app",
+    "sirest",
+    "restaurant_category",
+    "order_transaction_courier",
+    "order_transaction_customer",
+    "ingredient",
+    "food_category",
+    "delivery_fee",
+    "food",
+    "crud_promo",
+    "crud_resto",
+    "transaction_history",
+    "operational_hours",
+    "restopay",
+    "transaction_restaurant",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -100,13 +100,13 @@ DATABASES = {
 }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'nafis.azizi',
-        'USER': 'nafisaziziriza',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "mughni",
+        "USER": "postgres",
+        "PASSWORD": "mughni26",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

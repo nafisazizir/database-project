@@ -20,30 +20,19 @@
             <th>Order status</th>
             <th>Action</th>
         </tr>
-        <!-- {% for i in transaction_status %}
+        {% for i in transaction_status %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.RBranch }}</td>
-            <td>{{ i.FName }}</td>
-            <td>{{ i.DateTime }}</td>
-            <td>{{ i.OrderStatus }}</td>
+            <td>{{ i.0 }}</td>
+            <td>{{ i.1 }}</td>
+            <td>{{ i.2 }}</td>
+            <td>{{ i.3 }}</td>
             <td>
                 <a href = ""><button>Details</button></a>
                 <a href = ""><button>Complete</button></a>
             </td>
         </tr>
-        {% endfor %} -->
-        <tr>
-            <td>1</td>
-            <td>Warung Mantap Depok</td>
-            <td>Mikayla Putri</td>
-            <td>2022-11-04 11:30:05</td>
-            <td>Order Delivery</td>
-            <td>
-                <a href = ""><button>Details</button></a>
-                <a href = ""><button>Complete</button></a>
-            </td>
-        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

@@ -11,7 +11,6 @@ def logout(request):
     request.session.clear()
     return redirect("/login")
 
-
 def login(request):
     context =  {}
     role = ''
@@ -85,6 +84,11 @@ def login(request):
                 request.session["role"] = role
                 request.session['isLoggedIn'] = True
 
+                print("admin", adminLst)
+                print("courier", courierLst)
+                print("customer", customerLst)
+                print("restaurant", restaurantLst)
+
                 if role == 'admin':
                     return redirect('user:show_admin_dash')
                 elif role == 'courier':
@@ -108,15 +112,38 @@ def register_admin(request):
         if request.method == "POST":
             email = request.POST.get("email")
             password = request.POST.get("password")
-            name = request.POST.get("name")
+            name = request.POST.get("name").split()
             phonenum = request.POST.get("phonenumber")
 
-            cursor.execute(f"""
-                INSERT INTO ADMIN VALUES
-                ('{email}', '{password}', '{name}', '{phonenum}')
-            """)
+            fname = name[0]
+            lname = ''
+            for i in range(len(name)):
+                lname = lname + name[i+1] + ' '
+                if i == len(name)-2:
+                    break
+            lname = lname[:-1]
 
-            # return redirect("/systemadmin")        
+            try:
+                cursor.execute(f"""
+                    INSERT INTO USER_ACC VALUES
+                    ('{email}', '{password}', '{phonenum}', '{fname}', '{lname}');
+                    INSERT INTO ADMIN VALUES
+                    ('{email}');
+                """)
+
+                cursor.execute("SET SEARCH_PATH TO PUBLIC")
+                request.session["email"] = email
+                request.session["role"] = 'admin'
+                request.session['isLoggedIn'] = True
+                return redirect('user:show_admin_dash')
+            
+            except Exception as e:
+                mess = str(e).split('\n')[0]
+                if 'password' in mess:
+                    context['message'] = mess
+                elif 'unique' in mess:
+                    context['message'] = 'Email already exists!'
+                print(mess)
 
     return render(request, "register_admin.html", context)
 
@@ -128,7 +155,7 @@ def register_customer(request):
         if request.method == "POST":
             email = request.POST.get("email")
             password = request.POST.get("password")
-            name = request.POST.get("name")
+            name = request.POST.get("name").split()
             phonenum = request.POST.get("phonenumber")
 
             nik = request.POST.get("nik")
@@ -137,12 +164,43 @@ def register_customer(request):
             dateofbirth = request.POST.get("dateofbirth")
             gender = request.POST.get("gender")
             
-            cursor.execute(f"""
-                INSERT INTO CUSTOMER VALUES
-                ('{email}', '{password}', '{name}', '{phonenum}', '{nik}', '{bankname}', '{accountnumber}', '{dateofbirth}', '{gender}')
-            """)
+            fname = name[0]
+            lname = ''
+            for i in range(len(name)):
+                lname = lname + name[i+1] + ' '
+                if i == len(name)-2:
+                    break
+            lname = lname[:-1]
 
-            return redirect("/login")        
+            if gender == 'Male':
+                gender = 'M'
+            else:
+                gender = 'F'
+
+            try:
+                cursor.execute(f"""
+                    INSERT INTO USER_ACC VALUES
+                    ('{email}', '{password}', '{phonenum}', '{fname}', '{lname}');
+                    INSERT INTO TRANSACTION_ACTOR VALUES
+                    ('{email}', '{nik}', '{bankname}', '{accountnumber}');
+                    INSERT INTO CUSTOMER VALUES
+                    ('{email}', '{dateofbirth}', '{gender}')
+                """)
+
+                cursor.execute("SET SEARCH_PATH TO PUBLIC")
+                request.session["email"] = email
+                request.session["role"] = 'customer'
+                request.session['isLoggedIn'] = True
+                return redirect('user:show_customer_dash')
+            
+            except Exception as e:
+                mess = str(e).split('\n')[0]
+                if 'password' in mess:
+                    context['message'] = mess
+                elif 'unique' in mess:
+                    context['message'] = 'Email already exists!'
+                else:
+                    context['message'] = e
 
     return render(request, 'register_customer.html', context)
 
@@ -151,10 +209,11 @@ def register_restaurant(request):
     
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO SIREST")
+
         if request.method == "POST":
             email = request.POST.get("email")
             password = request.POST.get("password")
-            name = request.POST.get("name")
+            name = request.POST.get("name").split()
             phonenum = request.POST.get("phonenumber")
             nik = request.POST.get("nik")
             bankname = request.POST.get("bankname")
@@ -169,14 +228,46 @@ def register_restaurant(request):
             province = request.POST.get("province")
             restaurantcategory = request.POST.get("restaurantcategory")
 
+            fname = name[0]
+            lname = ''
+            for i in range(len(name)):
+                lname = lname + name[i+1] + ' '
+                if i == len(name)-2:
+                    break
+            lname = lname[:-1]
 
-            cursor.execute(f"""
-                INSERT INTO RESTAURANT VALUES
-                ('{email}', '{password}', '{name}', '{phonenum}', '{nik}', '{bankname}', '{accountnumber}',
-                '{restaurantname}', '{branch}', '{rphonenumber}', '{street}', '{district}', '{city}', '{province}', '{restaurantcategory}')
-            """)
+            try:
+                cursor.execute(f"""
+                    INSERT INTO USER_ACC VALUES
+                    ('{email}', '{password}', '{phonenum}', '{fname}', '{lname}');
+                    INSERT INTO TRANSACTION_ACTOR VALUES
+                    ('{email}', '{nik}', '{bankname}', '{accountnumber}');
+                    INSERT INTO RESTAURANT VALUES
+                    ('{restaurantname}', '{branch}', '{email}', '{rphonenumber}', '{street}',
+                    '{district}', '{city}', '{province}', 0, '{restaurantcategory}')
+                """)
 
-            return redirect("/login")
+                cursor.execute("SET SEARCH_PATH TO PUBLIC")
+                request.session["email"] = email
+                request.session["role"] = 'restaurant'
+                request.session['isLoggedIn'] = True
+                return redirect('user:show_restaurant_dash')
+            
+            except Exception as e:
+                mess = str(e).split('\n')[0]
+                if 'password' in mess:
+                    context['message'] = mess
+                elif 'unique' in mess:
+                    context['message'] = 'Email already exists!'
+                else:
+                    context['message'] = e
+        
+        
+        cursor.execute(f"""
+        select *
+        from restaurant_category
+        """)
+        context['category'] = cursor.fetchall()
 
     return render(request, 'register_restaurant.html', context)
 
@@ -188,7 +279,7 @@ def register_courier(request):
         if request.method == "POST":
             email = request.POST.get("email")
             password = request.POST.get("password")
-            name = request.POST.get("name")
+            name = request.POST.get("name").split()
             phonenum = request.POST.get("phonenumber")
             nik = request.POST.get("nik")
             bankname = request.POST.get("bankname")
@@ -199,13 +290,37 @@ def register_courier(request):
             vehicletype = request.POST.get("vehicletype")
             vehiclebrand = request.POST.get("vehiclebrand")
 
+            fname = name[0]
+            lname = ''
+            for i in range(len(name)):
+                lname = lname + name[i+1] + ' '
+                if i == len(name)-2:
+                    break
+            lname = lname[:-1]
 
-            cursor.execute(f"""
-                INSERT INTO COURIER VALUES
-                ('{email}', '{password}', '{name}', '{phonenum}', '{nik}', '{bankname}', '{accountnumber}',
-                '{numberplate}', '{drivinglicensenumber}', '{vehicletype}', '{vehiclebrand}')
-            """)
+            try:
+                cursor.execute(f"""
+                    INSERT INTO USER_ACC VALUES
+                    ('{email}', '{password}', '{phonenum}', '{fname}', '{lname}');
+                    INSERT INTO TRANSACTION_ACTOR VALUES
+                    ('{email}', '{nik}', '{bankname}', '{accountnumber}');
+                    INSERT INTO COURIER VALUES
+                    ('{email}', '{numberplate}', '{drivinglicensenumber}', '{vehicletype}', '{vehiclebrand}')
+                """)
 
-            return redirect("/login")
+                cursor.execute("SET SEARCH_PATH TO PUBLIC")
+                request.session["email"] = email
+                request.session["role"] = 'courier'
+                request.session['isLoggedIn'] = True
+                return redirect('user:show_courier_dash')
+            
+            except Exception as e:
+                mess = str(e).split('\n')[0]
+                if 'password' in mess:
+                    context['message'] = mess
+                elif 'unique' in mess:
+                    context['message'] = 'Email already exists!'
+                else:
+                    context['message'] = e
 
     return render(request, 'register_courier.html', context)
