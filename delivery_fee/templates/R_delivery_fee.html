@@ -27,8 +27,8 @@
         <td>{{item.carfee}}</td>
         {%endfor%}
         <td>
-          <button type="submit" id="editbutton"><a href="/delivery_fee/templates/U_delivery_fee.html">Edit</a></button><br>
-          <button type="submit" id="delete_${task.pk}">Delete</button>
+          <button type="submit" id="editbutton"><a href="{% url 'delivery_fee:update_fee' id=index %}">Edit</a></button><br>
+          <button type="submit" id="editbutton"><a href="{% url 'delivery_fee:delete_fee' id=index %}">Delete</a></button>
         </td>
     </tr>
     </table>
