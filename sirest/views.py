@@ -11,6 +11,7 @@ def logout(request):
     request.session.clear()
     return redirect("/login")
 
+@csrf_exempt
 def login(request):
     context =  {}
     role = ''
@@ -104,6 +105,7 @@ def register(request):
     context = {}
     return render(request, 'register.html', context)
 
+@csrf_exempt
 def register_admin(request):
     context = {}
     
@@ -147,6 +149,7 @@ def register_admin(request):
 
     return render(request, "register_admin.html", context)
 
+@csrf_exempt
 def register_customer(request):
     context = {}
     
@@ -204,6 +207,7 @@ def register_customer(request):
 
     return render(request, 'register_customer.html', context)
 
+@csrf_exempt
 def register_restaurant(request):
     context = {}
     
@@ -271,6 +275,7 @@ def register_restaurant(request):
 
     return render(request, 'register_restaurant.html', context)
 
+@csrf_exempt
 def register_courier(request):
     context = {}
     
