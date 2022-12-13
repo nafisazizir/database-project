@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "sirest",
     "restaurant_category",
     "order_transaction_courier",
+    "order_transaction_customer",
+    "food_category",
     "ingredient",
     "delivery_fee",
     "food",

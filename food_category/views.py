@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.db import connection
+import random, string
 
 
 def create_food_category(request):
