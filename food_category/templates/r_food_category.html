@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Food Categories</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Food Category</th>
+            <th>Action</th>
+        </tr>
+        {% for i in food_category %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.0 }}</td>
+            <td>
+                <a href = 'delete/{{ i.0 }}'><button>Delete</button></a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+{% endblock content %}
