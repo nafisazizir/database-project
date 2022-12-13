@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
 
 def homepage(request):
     return render(request, 'homepage.html')
