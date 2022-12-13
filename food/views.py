@@ -8,8 +8,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
-import datetime
 
 def show_resto_list(request):
     SQL = f"""
@@ -35,7 +33,7 @@ def show_food(request):
 def add_food(request):
     if not request.session.get("isLoggedIn"):
         return redirect('sirest:logout')
-    if not request.session.get("role") == 'admin':
+    if not request.session.get("role") == 'restaurant':
         return redirect('sirest:logout')
 
     def varcharRandomizer():
@@ -84,7 +82,7 @@ def add_food(request):
 def change_food(request):
     if not request.session.get("isLoggedIn"):
         return redirect('sirest:logout')
-    if not request.session.get("role") == 'admin':
+    if not request.session.get("role") == 'restaurant':
         return redirect('sirest:logout')
     # if request.method == "PUT":
     #     task = Task.objects.get(user=request.user, id=id)

@@ -1,0 +1,36 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Order List</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Foodname</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Item Total Price</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Original Chicken Bucket</td>
+            <td>45000</td>
+            <td>1</td>
+            <td>45000</td>
+        </tr>
+    </table>
+    <a href="/order_transaction_customer/confirm">[Confirm]</a>
+</body>
+
+{% endblock content %}

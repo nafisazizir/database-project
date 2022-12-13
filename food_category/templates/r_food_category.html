@@ -6,31 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         table, th, td {
-            border: 1px solid  black;
+            border: 1px solid black;
         }
     </style>
 </head>
 <body>
+    <h2>Food Categories</h2>
     <table>
         <tr>
             <th>No</th>
-            <th>Restaurant Category</th>
+            <th>Food Category</th>
             <th>Action</th>
         </tr>
-        {% for i in category %}
+        {% for i in food_category %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.2 }}</td>
+            <td>{{ i.0 }}</td>
             <td>
-                {% if i.1 != i.0 %}
-                <a href = 'delete_category/{{ i.2 }}'><button>Delete</button></a>
-                {% else %}
-                <p></p>
-                {% endif %}
+                <a href = 'delete/{{ i.0 }}'><button>Delete</button></a>
+
             </td>
         </tr>
         {% endfor %}
     </table>
 </body>
-</html>
-{% endblock %}
+
+{% endblock content %}
