@@ -3,12 +3,14 @@
 
 <body>
     <h2>Create Food Category</h2>
-    {% csrf_token %}
-    <form>
-        <div>
-            <label>Food Category Name: </label>
-            <input type="text">
-        </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="food_category_name"> Food Category Name: </label>
+                <input type="text" name="food_category_name" id="food_category_name" required>
+            </li>
+        </ul>
         <button type="submit">Save</button>
     </form>
 </body>

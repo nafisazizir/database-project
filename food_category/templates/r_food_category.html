@@ -18,15 +18,16 @@
             <th>Food Category</th>
             <th>Action</th>
         </tr>
+        {% for i in food_category %}
         <tr>
-            <td>1</td>
-            <td>Snack</td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.0 }}</td>
+            <td>
+                <a href = 'delete/{{ i.0 }}'><button>Delete</button></a>
+
+            </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Minuman</td>
-            <td><a href = ""><button>Delete</button></a></td>
-        </tr>
+        {% endfor %}
     </table>
 </body>
 
