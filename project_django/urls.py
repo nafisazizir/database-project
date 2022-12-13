@@ -21,21 +21,25 @@ import sirest.urls as sirest
 import restaurant_category.urls as restaurant_category
 import order_transaction_courier.urls as order_transaction_courier
 import ingredient.urls as ingredient
+import food_category.urls as food_category
+import order_transaction_customer.urls as order_transaction_customer
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(sirest)),
-    path('restaurant_category/', include(restaurant_category)),
-    path('order_transaction_courier/', include(order_transaction_courier)),
-    path('ingredient/', include(ingredient)),
-    path('promos/', include('crud_promo.urls')),
-    path('restopromos/', include('crud_resto.urls')),
-    path('history/', include('transaction_history.urls')),
-    path('operational_hours/', include('operational_hours.urls')),
-    path('restopay/', include('restopay.urls')),
-    path('transaction_restaurant/', include('transaction_restaurant.urls')),
-    path('delivery_fee/', include('delivery_fee.urls')),
-    path('food/', include('food.urls')),
-    path('user/', include('user.urls')),
-    path('sirest/', include('sirest.urls')),
+    path("admin/", admin.site.urls),
+    path("", include(sirest)),
+    path("restaurant_category/", include(restaurant_category)),
+    path("order_transaction_courier/", include(order_transaction_courier)),
+    path("order_transaction_customer/", include(order_transaction_customer)),
+    path("ingredient/", include(ingredient)),
+    path("food_category/", include(food_category)),
+    path("promos/", include("crud_promo.urls")),
+    path("restopromos/", include("crud_resto.urls")),
+    path("history/", include("transaction_history.urls")),
+    path("operational_hours/", include("operational_hours.urls")),
+    path("restopay/", include("restopay.urls")),
+    path("transaction_restaurant/", include("transaction_restaurant.urls")),
+    path("delivery_fee/", include("delivery_fee.urls")),
+    path("food/", include("food.urls")),
+    path("user/", include("user.urls")),
+    path("sirest/", include("sirest.urls")),
 ]
