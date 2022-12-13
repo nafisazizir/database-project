@@ -7,32 +7,35 @@
 </head>
 <body>
     <h2>Order Summary</h2>
-    <p>Time of order creation: 2022-11-04 11:30:05</p>
-    <p>Customer name: Mikayla Putri</p>
-    <p>Street: Jalan Bahagia nomor 72</p>
-    <p>District: Cinere</p>
-    <p>City: Depok</p>
-    <p>Province: Jawa Barat</p>
-    <p>Restaurant: Warung Mantap Depok</p>
-    <p>Street: Jalan Sejahtera nomor 5</p>
-    <p>District: Bojongsari</p>
-    <p>City: Depok</p>
-    <p>Province: Jawa Barat</p>
+    <p>Time of order creation:</p>
+    <p>Customer name: {{ customer_detail.0 }}</p>
+    <p>Street: {{ customer_detail.1 }}</p>
+    <p>District: {{ customer_detail.2 }}</p>
+    <p>City: {{ customer_detail.3 }}</p>
+    <p>Province: {{ customer_detail.4 }}</p>
+
+    <p>Restaurant: {{ restaurant_detail.0 }}</p>
+    <p>Street: {{ restaurant_detail.1 }}</p>
+    <p>District: {{ restaurant_detail.2 }}</p>
+    <p>City: {{ restaurant_detail.3 }}</p>
+    <p>Province: {{ restaurant_detail.4 }}</p>
+
     <p>Food Ordered:</p>
-    <li>Ayam Goreng (1) - [Notes if any]</li>
-    <li>Ice Cream (2) - [Notes if any]</li>
-    <p>Total Food Price: 11000</p>
-    <p>Total Discount: 0</p>
-    <p>Delivery Fee: 4000</p>
-    <p>Total Cost: 15000</p>
-    <p>Payment Method: RestoPay</p>
-    <p>Payment Status: Succeed</p>
-    <p>Order Status: Order Delivery</p>
-    <p>Courier: Doni Suryana</p>
-    <p>Number Plate: B 0001 KNN</p>
-    <p>Vehicle Type: Motor</p>
-    <p>Vehicle Brand: Honda Vario</p>
-    <a href = ""><button>Back</button></a>
+    <li>-</li>
+    <li>-</li>
+    <p>Total Food Price: </p>
+    <p>Total Discount: </p>
+    <p>Delivery Fee: </p>
+    <p>Total Cost: </p>
+    <p>Payment Method: </p>
+    <p>Payment Status: </p>
+    <p>Order Status: </p>
+
+    <p>Courier: {{ courier_detail.0 }}</p>
+    <p>Number Plate: {{ courier_detail.1 }}</p>
+    <p>Vehicle Type: {{ courier_detail.2 }}</p>
+    <p>Vehicle Brand: {{ courier_detail.3 }}</p>
+    <a href = "{% url 'order_transaction_courier:ongoing_order' %}"><button>Back</button></a>
 </body>
 </html>
 {% endblock %}

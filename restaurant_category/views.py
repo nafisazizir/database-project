@@ -1,7 +1,9 @@
 from django.db import connection
 from django.shortcuts import render, redirect, HttpResponseRedirect
 import random, string
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def create_restaurant_category(request):
     context = {}
 
