@@ -8,10 +8,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
-import datetime
 from django.db import connection
-# from delivery_fee.models import Task
-
 
 def show_fee(request):
     errors = []
@@ -100,7 +97,7 @@ def change_fee(request, province, motorfee, carfee):
         motorate = request.POST.get('motorate')
         carrate = request.POST.get('carrate')
 
-        if new_motorfee and new_carfee:
+        if motorate and carrate:
             SQL = f"""
             SELECT *
             FROM DELIVERY_FEE_PER_KM
