@@ -29,8 +29,8 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdown10">
                         <li><a class="dropdown-item" href="{% url 'restaurant_category:read_restaurant_category' %}">Restaurant Category List</a></li>
                         <li><a class="dropdown-item" href="{% url 'restaurant_category:create_restaurant_category' %}">Create Restaurant Category</a></li>
-                        <li><a class="dropdown-item" href="#">Food Category List</a></li>
-                        <li><a class="dropdown-item" href="#">Create Food Category</a></li>
+                        <li><a class="dropdown-item" href="{% url 'food_category:read_food_category' %}">Food Category List</a></li>
+                        <li><a class="dropdown-item" href="{% url 'food_category:create_food_category' %}">Create Food Category</a></li>
                         <li><a class="dropdown-item" href="{% url 'ingredient:r_ingredient' %}">Food Ingredient List</a></li>
                         <li><a class="dropdown-item" href="{% url 'ingredient:c_ingredient' %}">Create Food Ingredient</a></li>
                         <li><a class="dropdown-item" href="{% url 'food:show_resto_list' %}">Restaurant and Food List</a></li>

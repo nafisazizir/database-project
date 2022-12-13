@@ -3,7 +3,6 @@
 
 <body>
     <h2>Input Food Delivery Address</h2>
-    {% csrf_token %}
     <form>
         <div>
             <label>Street: </label>
@@ -19,7 +18,11 @@
         </div>
         <div>
             <label>Province: </label>
-            <select></select>
+            <select>
+                {% for i in provinces %}
+                    <option>{{ i.0 }}</option>
+                {% endfor %}
+            </select>
         </div>
         <a href="/order_transaction_customer/restaurant">[Continue]</a>
     </form>

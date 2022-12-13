@@ -14,7 +14,6 @@
 
 <body>
     <h2>Food Selection</h2>
-    {% csrf_token %}
     <form>
         <table>
             <tr>
@@ -36,11 +35,18 @@
         <h3>Select Payment and Delivery Method</h3>
         <div>
             <label>Delivery Method: </label>
-            <select></select>
+            <select>
+                <option>Motorcycle</option>
+                <option>Car</option>
+            </select>
         </div>
         <div>
             <label>Payment Method: </label>
-            <select></select>
+            <select>
+                {% for i in payment_method %}
+                    <option>{{ i.0 }}</option>
+                {% endfor %}
+            </select>
         </div>
 
         <a href="/order_transaction_customer/payment">[Create Order]</a>

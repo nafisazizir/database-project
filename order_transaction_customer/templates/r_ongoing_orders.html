@@ -22,20 +22,17 @@
             <th>Order Status</th>
             <th>Action</th>
         </tr>
+        {% for i in ongoing_orders %}
         <tr>
-            <td>1</td>
-            <td>KFC Margonda</td>
-            <td>2022-11-04 11:30:05</td>
-            <td>Waiting for Restaurant Confirmation</td>
-            <td><a href="/order_transaction_customer/order-summary">[Details]</a></td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.0 }}</td>
+            <td>{{ i.1 }}</td>
+            <td>{{ i.2 }}</td>
+            <td>
+                <a href="/order_transaction_customer/order-summary"><button>[Details]</button></a>
+            </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>KFC Pondok Indah</td>
-            <td>2022-11-04 11:35:45</td>
-            <td>Waiting for Restaurant Confirmation</td>
-            <td><a href="/order_transaction_customer/order-summary">[Details]</a></td>
-        </tr>
+        {% endfor %}
     </table>
 </body>
 
