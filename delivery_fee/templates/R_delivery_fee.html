@@ -20,11 +20,11 @@
         <th>Actions</th>
       </tr>
       <tr>
-        {% for item in list_item %}
-        <td>{{item.pk}}</td>
+        {% for item in delivery_fee %}
+        <td>{{item.index}}</td>
         <td>{{item.province}}</td>
-        <td>{{item.motorate}}</td>
-        <td>{{item.carrate}}</td>
+        <td>{{item.motorfee}}</td>
+        <td>{{item.carfee}}</td>
         {%endfor%}
         <td>
           <button type="submit" id="editbutton"><a href="/delivery_fee/change_fee">Edit</a></button><br>
