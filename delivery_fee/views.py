@@ -24,17 +24,17 @@ def show_fee(request):
     FROM DELIVERY_FEE_PER_KM
     """
     cursor.execute(SQL)
-    delivery_fee_per_km_tuple = cursor.fetchall()
+    delivery_fee_per_km = cursor.fetchall()
 
     index = 0
-    delivery_fee_per_km_tuple_edit = []
-    for stuff in delivery_fee_per_km_tuple:
+    delivery_fee_per_km_formatted= []
+    for stuff in delivery_fee_per_km:
         index += 1
-        delivery_fee_per_km_tuple_edit.append((index, stuff[0], stuff[1], stuff[2]))
+        delivery_fee_per_km_formatted.append((index, stuff[0], stuff[1], stuff[2]))
 
     context = {
         'errors': errors,
-        'delivery_fee': delivery_fee_per_km_tuple,
+        'delivery_fee': delivery_fee_per_km_formatted,
     }
 
     return render(request, "R_delivery_fee.html", context)
@@ -55,8 +55,8 @@ def add_fee(request):
     
     if request.method == "POST":
         province = request.POST.get('province')
-        motorcycle_delivery_rate = request.POST.get('motorate')
-        car_delivery_rate = request.POST.get('carrate')
+        motorate= request.POST.get('motorate')
+        carrate = request.POST.get('carrate')
         SQL = f"""
         SELECT id
         FROM DELIVERY_FEE_PER_KM
@@ -70,17 +70,17 @@ def add_fee(request):
         while id in id_tuple:
             id = varcharRandomizer()
 
-        if province and motorcycle_delivery_rate and car_delivery_rate:
+        if province and motorate and carrate:
             SQL = f"""
             INSERT INTO DELIVERY_FEE_PER_KM
             VALUES 
-            ('{id}', '{province}', '{motorcycle_delivery_rate}', '{car_delivery_rate}')
+            ('{id}', '{province}', '{motorate}', '{carrate}')
             """
             cursor.execute(SQL)
             return redirect('delivery_fee:show_fee')
 
         else:
-            errors.append("Please fill out all fields.")
+            errors.append("Please fill every field")
 
     return render(request, "C_delivery_fee.html", {'errors': errors})
 
@@ -97,8 +97,8 @@ def change_fee(request, province, motorfee, carfee):
     cursor.execute("SET search_path to SIREST")
 
     if request.method == "POST":
-        new_motorfee = request.POST.get('motorate')
-        new_carfee = request.POST.get('carrate')
+        motorate = request.POST.get('motorate')
+        carrate = request.POST.get('carrate')
 
         if new_motorfee and new_carfee:
             SQL = f"""
@@ -114,7 +114,7 @@ def change_fee(request, province, motorfee, carfee):
             try:
                 SQL = f"""
                 UPDATE DELIVERY_FEE_PER_KM
-                SET motorfee = '{new_motorfee}', carfee = '{new_carfee}'
+                SET motorfee = '{motorate}', carfee = '{carrate}'
                 WHERE id = '{id}' AND province = '{province}' AND motorfee = '{motorfee}' AND carfee = '{carfee}'
                 """
                 cursor.execute(SQL)
@@ -122,10 +122,10 @@ def change_fee(request, province, motorfee, carfee):
                 return redirect('delivery_fee:show_fee')
 
             except:
-                errors.append("Delivery fee to-be-edited does not exist.")
+                errors.append("Chosen fee does not exist")
         
         else:
-            errors.append("Fill all the fields.")
+            errors.append("Please fill all the fields")
 
     context = {
         'errors': errors,
