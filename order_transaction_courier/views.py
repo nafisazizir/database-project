@@ -91,5 +91,4 @@ def summary_order_transaction_courier(request, restaurant_branch):
         # courier_detail = cursor.fetchone()
         # context["courier_detail"] = courier_detail
 
-
     return render(request, "summary_order_transaction_courier.html", context)
